@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MeshGen : MonoBehaviour
@@ -46,6 +47,7 @@ public class MeshGen : MonoBehaviour
             triangles[i2 + 3] = i3 + 2;
             triangles[i2 + 4] = i3 + 3;
             triangles[i2 + 5] = i3 + 1;
+
         }
 
         
@@ -90,6 +92,7 @@ public class MeshGen : MonoBehaviour
         float startPosition = index * SegmentLength;
         float step = SegmentLength / (SegmentResolution - 1);
 
+
         for (int i = 0; i < SegmentResolution; ++i)
         {
             // get the relative x position
@@ -101,12 +104,14 @@ public class MeshGen : MonoBehaviour
 
             // bottom vertex always at y=0
             _vertexArray[i * 2 + 1] = new Vector3(xPos, 0, 0);
+
         }
 
         mesh.vertices = _vertexArray;
 
         // need to recalculate bounds, because mesh can disappear too early
         mesh.RecalculateBounds();
+
     }
 
     private bool IsSegmentInSight(int index)
