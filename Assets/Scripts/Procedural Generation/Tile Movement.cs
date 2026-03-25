@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
+// This script would no longer be used for the tiles, but for some reason breaks when I remove them??
+
 public class TileMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created

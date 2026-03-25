@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour
     public float jumpSpeed = 10f;
     public float diveSpeed = -10f;
     public Vector3 pos;
-    public TileMovement TM; //References the tile movement script
+    public TileMovement TM; //References the tile movement script, when the player speeds up???
 
     bool IsGrounded()
     {
