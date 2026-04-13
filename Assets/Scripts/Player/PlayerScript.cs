@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     public float horizontalSpeed = 10f;
     public float jumpSpeed = 10f;
     public float diveSpeed = -10f;
+    public float yvelDiveSpeed = 30f;
     public Vector3 pos;
     public TileMovement TM; //References the tile movement script, when the player speeds up???
 
@@ -55,7 +56,7 @@ public class PlayerScript : MonoBehaviour
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
-        // Ball Jump, left click, grounded
+        // Makes the ball Jump, left click, grounded
         if (Input.GetKey(KeyCode.Mouse0) && IsGrounded())
         {
             yvel = jumpSpeed;
@@ -63,20 +64,21 @@ public class PlayerScript : MonoBehaviour
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
-        // Ball spin, left click, air
+        // Makes the ball spin, left click, air
         // Depends on whether I add skis
 
 
-        // Ball dive down up, right click, air
+        // Makes the ball dive down, right click, air
         if (Input.GetKey(KeyCode.Mouse1) && !IsGrounded ())
         {
-            yvel = -10;
+            // This slowly moves the player down
+            rb.AddForce(-transform.up * yvelDiveSpeed, ForceMode2D.Force);
         }
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
 
-        // Ball speed up, right click, grounded
+        // Makes the ball speed up, right click, grounded
 
     }
 }
