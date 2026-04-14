@@ -612,7 +612,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.3, y: -3.4, z: -5}
+  m_LocalPosition: {x: 16.2, y: -3.4, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1082,11 +1082,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1524193470}
+  - component: {fileID: 1524193473}
   - component: {fileID: 1524193469}
   - component: {fileID: 1524193468}
   - component: {fileID: 1524193467}
   - component: {fileID: 1524193472}
-  - component: {fileID: 1524193473}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1367,7 +1367,7 @@ MonoBehaviour:
     m_Bits: 8
   horizontalSpeed: 10
   jumpSpeed: 10
-  rightClickSpeedUp: 100
+  rightClickSpeedUp: 10
   yvelDiveSpeed: 25
   pos: {x: 0, y: 0, z: 0}
   xvel: 0
