@@ -3,24 +3,20 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class BoxScript : MonoBehaviour
 {
-    Collider2D cloneCollider;
-    public Vector3 oldcloneSize;
-    public Vector3 newcloneSize;
-
-    public Vector3 oldTileWidth;
-    public Vector3 newTileWidth;
-    public bool widthCheckComplete = false;
-
-    public TileInstantiate TI;
-
+    public Transform playerCamera;
+    public Transform tile;
     void Start()
     {
-        cloneCollider = GetComponent<Collider2D>();
+        
     }
 
     void Update()
     {
-
+        float distance = Vector3.Distance(playerCamera.position, tile.transform.position);
+        if ( distance <= 100f)
+        {
+            //Destroy(game);
+        }
     }
    
 }
