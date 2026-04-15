@@ -49,35 +49,16 @@ public class TileManager : MonoBehaviour
 
             prefabIndex = UnityEngine.Random.Range(0, tileList.Count); // Chooses a random tile from the array
 
-            clone = Instantiate(tileList[prefabIndex], new Vector3(0, 0, 0), Quaternion.identity);// Spawns the new tile
+            clone = Instantiate(tileList[prefabIndex], new Vector3(0, 0, 0), Quaternion.identity);// JUST spawns the new tile, nothing else
             newWidth = clone.GetComponent<Collider2D>().bounds.size.x; // Gets the width of the new tile
-            tileRespawnPoint = startX + (oldWidth / 2) + (newWidth / 2);// + tileRespawnPoint;
+            tileRespawnPoint = startX + (oldWidth / 2) + (newWidth / 2); // find the correct location of the TRP
 
             clone.transform.position = new Vector3(tileRespawnPoint, 0, 0); // Moves the tile to the TRP
 
             print("Width of the new tile = " + newWidth + ",  Width of the old tile = " + newWidth);
             
-            
             //Destroy(collision.gameObject);
 
         }
     }
-
-    public void WidthCheck()
-    {
-        /*
-        newcloneSize = cloneCollider.bounds.size; // Gets the size of the box around the tile
-        newTileWidth = newcloneSize / 2;
-        print("Width Check Complete");
-        widthCheckComplete = true;
-        */
-    }
-
-    /*
-    Destroy(collision.gameObject);
-            tileAvailable = true;
-            testTilesDespawned = testTilesDespawned + 1;
-        }
-    }
-    */
 }

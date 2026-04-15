@@ -587,7 +587,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 10.1
+  orthographic size: 49.22
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1007,6 +1007,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1399299427935765126, guid: 3c5e744d172bdfe42b54a3fbd0e449b8, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: f882dd8a3048fa647b3c6705bac045c0, type: 2}
+    - target: {fileID: 1399299427935765126, guid: 3c5e744d172bdfe42b54a3fbd0e449b8, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -1146,7 +1150,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f882dd8a3048fa647b3c6705bac045c0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1367,12 +1371,12 @@ MonoBehaviour:
     m_Bits: 8
   horizontalSpeed: 10
   jumpSpeed: 10
-  rightClickSpeedUp: 10
-  yvelDiveSpeed: 25
+  rightClickSpeedUp: 50
+  yvelDiveSpeed: 75
   pos: {x: 0, y: 0, z: 0}
   xvel: 0
   yvel: 0
-  speedLimit: 50
+  speedLimit: 300
 --- !u!1 &1552648379
 GameObject:
   m_ObjectHideFlags: 0

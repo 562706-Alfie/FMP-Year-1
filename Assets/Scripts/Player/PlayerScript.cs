@@ -58,7 +58,7 @@ public class PlayerScript : MonoBehaviour
         // Ball forward velocity
         if (Input.GetKeyDown(KeyCode.Mouse1) == false && IsGrounded()) // Only go forward at set velocity if player is not trying to speed up and is grounded
         {
-            //xvel = horizontalSpeed;
+            //xvel = horizontalSpeed;  Might not be needed anymore
         }
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
