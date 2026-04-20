@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: b18a0e68f7712da498c6952dc0ef0d99
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -729717956929445985
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_0
+  - first:
+      213: 8790640756715352676
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_1
+  - first:
+      213: -2687535141303841854
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_2
+  - first:
+      213: 6024410444666864969
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_3
+  - first:
+      213: -8581534519872034828
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_4
+  - first:
+      213: -6623749662227781931
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_5
+  - first:
+      213: 1895732367941547272
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_6
+  - first:
+      213: -955460363705527524
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_7
+  - first:
+      213: 365116173698874870
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_8
+  - first:
+      213: -5016128565723070562
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_9
+  - first:
+      213: -3692843381110230649
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_10
+  - first:
+      213: -6897395262891199032
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_11
+  - first:
+      213: 1948934396343041346
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_12
+  - first:
+      213: 640790982282803678
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_13
+  - first:
+      213: 59532293370534378
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_14
+  - first:
+      213: 4976335748886802760
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_15
+  - first:
+      213: 2085060335068944658
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_16
+  - first:
+      213: -8191168467357123143
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_17
+  - first:
+      213: 8823737232738098350
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_18
+  - first:
+      213: -6011930178007906406
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_19
+  - first:
+      213: 6683592579879948389
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_20
+  - first:
+      213: -3378581420139366833
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_21
+  - first:
+      213: -4936500360637648345
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_22
+  - first:
+      213: 6534642599818052581
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_23
+  - first:
+      213: -1032806821068967708
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_24
+  - first:
+      213: 4235874602446787217
+    second: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_0
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 723
+        width: 373
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f1ff662658fd5f0800000000000000
+      internalID: -729717956929445985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_1
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 370
+        width: 482
+        height: 530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 462f6148131aef970800000000000000
+      internalID: 8790640756715352676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_2
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 767
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb84353705f3bad0800000000000000
+      internalID: -2687535141303841854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_3
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 767
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 945858771610b9350800000000000000
+      internalID: 6024410444666864969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_4
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 767
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f7664332d348e880800000000000000
+      internalID: -8581534519872034828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_5
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 767
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d6accdb6c6b314a0800000000000000
+      internalID: -6623749662227781931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_6
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 767
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805bd5c6b8efe4a10800000000000000
+      internalID: 1895732367941547272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_7
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 767
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c13dd588cd58db2f0800000000000000
+      internalID: -955460363705527524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_8
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 767
+        width: 90
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fd321bb937211500800000000000000
+      internalID: 365116173698874870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_9
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 550
+        width: 374
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ff26465a1236ab0800000000000000
+      internalID: -5016128565723070562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_10
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 632
+        width: 341
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 781b5c9a28260ccc0800000000000000
+      internalID: -3692843381110230649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_11
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 632
+        width: 340
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c578e76d878740a0800000000000000
+      internalID: -6897395262891199032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_12
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 377
+        width: 374
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24d3190f1810c0b10800000000000000
+      internalID: 1948934396343041346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_13
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 497
+        width: 341
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed97d3ad00c84e800800000000000000
+      internalID: 640790982282803678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_14
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 497
+        width: 340
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9d30f2e4083d000800000000000000
+      internalID: 59532293370534378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_15
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 377
+        width: 740
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 841b9737ffe7f0540800000000000000
+      internalID: 4976335748886802760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_16
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 208
+        width: 308
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2199a0fd35f9fec10800000000000000
+      internalID: 2085060335068944658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_17
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 208
+        width: 309
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd3cc77daf135e80800000000000000
+      internalID: -8191168467357123143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_18
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 208
+        width: 308
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac1eb45346347a70800000000000000
+      internalID: 8823737232738098350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_19
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 208
+        width: 309
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97436d0b55519ca0800000000000000
+      internalID: -6011930178007906406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_20
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 208
+        width: 308
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5605e2b4a04e0cc50800000000000000
+      internalID: 6683592579879948389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_21
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 77
+        width: 308
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f46bbdf491edc11d0800000000000000
+      internalID: -3378581420139366833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_22
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 77
+        width: 309
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 722fa92a3170e7bb0800000000000000
+      internalID: -4936500360637648345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_23
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 77
+        width: 308
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e34a4092d6bfaa50800000000000000
+      internalID: 6534642599818052581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_24
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 77
+        width: 309
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e075941babbaa1f0800000000000000
+      internalID: -1032806821068967708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_25
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 77
+        width: 308
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19290ff1289d8ca30800000000000000
+      internalID: 4235874602446787217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_0: -729717956929445985
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_1: 8790640756715352676
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_10: -3692843381110230649
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_11: -6897395262891199032
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_12: 1948934396343041346
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_13: 640790982282803678
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_14: 59532293370534378
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_15: 4976335748886802760
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_16: 2085060335068944658
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_17: -8191168467357123143
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_18: 8823737232738098350
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_19: -6011930178007906406
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_2: -2687535141303841854
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_20: 6683592579879948389
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_21: -3378581420139366833
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_22: -4936500360637648345
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_23: 6534642599818052581
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_24: -1032806821068967708
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_25: 4235874602446787217
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_3: 6024410444666864969
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_4: -8581534519872034828
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_5: -6623749662227781931
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_6: 1895732367941547272
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_7: -955460363705527524
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_8: 365116173698874870
+      game-buttons-frames-sci-fi-style-design-elements-menu-assets-user-interface-vector-ca_9: -5016128565723070562
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

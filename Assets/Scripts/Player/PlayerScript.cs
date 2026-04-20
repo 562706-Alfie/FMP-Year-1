@@ -10,12 +10,10 @@ public class PlayerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     Rigidbody2D rb;
-    float _currentTime = 0;
     public LayerMask groundLayer;
-    public float horizontalSpeed = 10f;
-    public float jumpSpeed = 10f;
-    public float rightClickSpeedUp = 10f;
-    public float yvelDiveSpeed = 30f;
+    public float jumpSpeed;
+    public float rightClickSpeedUp;
+    public float rightClickDiveSpeed;
     public Vector3 pos;
     public float xvel, yvel;
     public float speedLimit;
@@ -53,15 +51,6 @@ public class PlayerScript : MonoBehaviour
         {
             xvel = speedLimit;
         }
-        _currentTime = _currentTime - Time.deltaTime;
-
-        // Ball forward velocity
-        if (Input.GetKeyDown(KeyCode.Mouse1) == false && IsGrounded()) // Only go forward at set velocity if player is not trying to speed up and is grounded
-        {
-            //xvel = horizontalSpeed;  Might not be needed anymore
-        }
-
-        rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
         // Makes the ball speed up, right click, grounded
         if (Input.GetKey(KeyCode.Mouse1) && IsGrounded())
@@ -87,7 +76,7 @@ public class PlayerScript : MonoBehaviour
         // Makes the ball dive down, right click, air
         if (Input.GetKey(KeyCode.Mouse1) && !IsGrounded ())
         {
-            rb.AddForce(-transform.up * yvelDiveSpeed, ForceMode2D.Force); //Dives the player down
+            rb.AddForce(-transform.up * rightClickDiveSpeed, ForceMode2D.Force); //Dives the player down
         }
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);

@@ -15,30 +15,10 @@ public class ButtonScript : MonoBehaviour
         LevelManager.instance.playerHealth = 10;
     }
 
-    public void Play1Method()
+    public void PlayMethod()
     {
-        FindFirstObjectByType<AudioManager>().Play("MenuSelect");
-        SceneManager.LoadScene("Level 1");
-        LevelManager.instance.playerHealth = 10;
-    }
-
-    public void Play2Method()
-    {
-        FindFirstObjectByType<AudioManager>().Play("MenuSelect");
-        SceneManager.LoadScene("Level 2");
-        LevelManager.instance.playerHealth = 10;
-    }
-
-    public void Play3Method()
-    {
-        FindFirstObjectByType<AudioManager>().Play("MenuSelect");
-        SceneManager.LoadScene("Level 3");
-        LevelManager.instance.playerHealth = 10;
-    }
-
-    public void TurnOffMusic()
-    {
-
+        //FindFirstObjectByType<AudioManager>().Play("MenuSelect");
+        SceneManager.LoadScene("Main Scene");
     }
 
     public void ChangeMusicVolume(float volume)
