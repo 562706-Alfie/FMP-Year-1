@@ -55,7 +55,7 @@ public class PlayerScript : MonoBehaviour
         // Makes the ball speed up, right click, grounded
         if (Input.GetKey(KeyCode.Mouse1) && IsGrounded())
         {
-            rb.AddForce(transform.right * rightClickSpeedUp, ForceMode2D.Force);
+            rb.AddForce(transform.right * rightClickSpeedUp/* * Time.deltaTime*/, ForceMode2D.Force);
             print("Speeding up");
         }
 

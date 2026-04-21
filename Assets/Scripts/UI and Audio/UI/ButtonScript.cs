@@ -31,49 +31,14 @@ public class ButtonScript : MonoBehaviour
         AudioManager.instance.sfxVolume = volume;
     }
 
-    public void PlayMenuHover()
-    {
-        AudioManager.instance.Play("MenuHover");
-    }
-
-    public void PlayMenuSelect()
+    public void PlaySelect()
     {
         AudioManager.instance.Play("MenuSelect");
     }
 
-    public void PlayNewMenuSelect()
+    public void PlaySelectBack()
     {
-        AudioManager.instance.Play("NewMenuSelect");
-    }
-
-    public void PlayNewMenuHover()
-    {
-        AudioManager.instance.Play("NewMenuHover");
-    }
-
-    public void PlayNewMenuBack()
-    {
-        AudioManager.instance.Play("NewMenuBack");
-    }
-
-    public void PlayNewMenuStartUp()
-    {
-        AudioManager.instance.Play("NewMenuStartUp");
-    }
-
-    public void PlayNewMenuBackground1()
-    {
-        AudioManager.instance.Play("NewMenuBackground1");
-    }
-
-    public void PlayNewMenuBackground2()
-    {
-        AudioManager.instance.Play("NewMenuBackground2");
-    }
-
-    public void PlayNewMenuAlarm()
-    {
-        AudioManager.instance.Play("NewMenuAlarm");
+        AudioManager.instance.Play("MenuBack");
     }
 
     public void QuitGame()

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -89,5 +90,8 @@ public class AudioManager : MonoBehaviour
 
     You will need to have the audio play through the audio mixer
     https://www.youtube.com/watch?v=C1gCOoDU29M
+
+
+    If you are using this in the future, everything should just work. Ensure the name is the same in buttonscript, an Audio mixer is selected on both the audio source on the AudioManager, and the sound in the array, and that the volume and pitch are at 1.
     */
 }

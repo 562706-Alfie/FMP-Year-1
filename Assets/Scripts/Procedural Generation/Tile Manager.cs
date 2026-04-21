@@ -32,6 +32,12 @@ public class TileManager : MonoBehaviour
         float xvelo;
         xvelo = rb.linearVelocity.x;
         xvelo = PS.xvel;
+
+        if (xvelo <= 0)
+        {
+            xvelo = 0;
+        }
+
         if (xvelo >= PS.speedLimit)
         {
             xvelo = PS.speedLimit;
