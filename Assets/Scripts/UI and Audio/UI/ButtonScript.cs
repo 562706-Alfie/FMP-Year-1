@@ -6,6 +6,18 @@ public class ButtonScript : MonoBehaviour
 {
     //public variable to reference the button text - set this up in the Unity editor
     public TMP_Text buttonText;
+    public bool mainThemePlayed;
+
+    public void Start()
+    {
+        
+        if (mainThemePlayed == true)
+        {
+            FindFirstObjectByType<AudioManager>().Play("MainTheme");
+            //mainThemePlayed = false;
+        }
+
+    }
 
     public void ButtonMethod()
     {
@@ -17,8 +29,12 @@ public class ButtonScript : MonoBehaviour
 
     public void PlayMethod()
     {
-        //FindFirstObjectByType<AudioManager>().Play("MenuSelect");
         SceneManager.LoadScene("Main Scene");
+    }
+
+    public void ReturntoMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void ChangeMusicVolume(float volume)
