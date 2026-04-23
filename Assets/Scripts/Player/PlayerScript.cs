@@ -10,13 +10,10 @@ public class PlayerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     Rigidbody2D rb;
+    public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit;
+    public bool inputSpeedUp, inputDiveDown, inputBallJump;
     public LayerMask groundLayer;
-    public float jumpSpeed;
-    public float rightClickSpeedUp;
-    public float rightClickDiveSpeed;
     public Vector3 pos;
-    public float xvel, yvel;
-    public float speedLimit;
 
     bool IsGrounded()
     {
@@ -55,16 +52,27 @@ public class PlayerScript : MonoBehaviour
         // Makes the ball speed up, right click, grounded
         if (Input.GetKey(KeyCode.Mouse1) && IsGrounded())
         {
-            rb.AddForce(transform.right * rightClickSpeedUp/* * Time.deltaTime*/, ForceMode2D.Force);
-            print("Speeding up");
+            inputSpeedUp = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse1) || !IsGrounded())
+        {
+            inputSpeedUp = false;
         }
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
+
         // Makes the ball Jump, left click, grounded
         if (Input.GetKey(KeyCode.Mouse0) && IsGrounded())
         {
-            yvel = jumpSpeed;
+            inputBallJump = true;
+            //yvel = jumpSpeed; // Doesn't work in FixedUpdate for some reason
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0) || !IsGrounded())
+        {
+            inputBallJump = false;
         }
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
@@ -76,12 +84,38 @@ public class PlayerScript : MonoBehaviour
         // Makes the ball dive down, right click, air
         if (Input.GetKey(KeyCode.Mouse1) && !IsGrounded ())
         {
-            rb.AddForce(-transform.up * rightClickDiveSpeed, ForceMode2D.Force); //Dives the player down
+            inputDiveDown = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse1) || IsGrounded())
+        {
+            inputDiveDown = false;
+        }
+
+        rb.linearVelocity = new Vector3(xvel, yvel, 0);
+    }
+
+    public void FixedUpdate()
+    {
+        // Makes the ball speed up, right click, grounded
+        if (inputSpeedUp == true)
+        {
+            rb.AddForce(transform.right * rightClickSpeedUp/* * Time.deltaTime*/, ForceMode2D.Force);
+        }
+
+        // Makes the ball Jump, left click, grounded
+        if (inputBallJump == true)
+        {
+            yvel = jumpSpeed;
         }
 
         rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
-
+        // Makes the ball dive down, right click, air
+        if (inputDiveDown == true)
+        {
+            rb.AddForce(-transform.up * rightClickDiveSpeed, ForceMode2D.Force); //Dives the player down
+        }
     }
 }
 

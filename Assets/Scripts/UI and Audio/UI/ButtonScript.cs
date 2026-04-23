@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 public class ButtonScript : MonoBehaviour
 {
     //public variable to reference the button text - set this up in the Unity editor
-    public TMP_Text buttonText;
-    public bool mainThemePlayed;
+    public bool isMusicPlayer;
 
     public void Start()
     {
         
-        if (mainThemePlayed == true)
+        if (isMusicPlayer == true)
         {
             FindFirstObjectByType<AudioManager>().Play("MainTheme");
-            //mainThemePlayed = false;
+            isMusicPlayer = false;
         }
 
     }
@@ -22,7 +21,6 @@ public class ButtonScript : MonoBehaviour
     public void ButtonMethod()
     {
         FindFirstObjectByType<AudioManager>().Play("MenuSelect");
-        buttonText.text = "Resetting!";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         LevelManager.instance.playerHealth = 10;
     }
