@@ -9,7 +9,6 @@ public class TileManager : MonoBehaviour
     public Transform respawnPoint;
     public PlayerScript PS;
     public float newWidth = 38.84f, oldWidth = 121.9f, tileRespawnPoint = 121.9f, oldTileRespawnPoint; // dont change these or it will probably break
-    public float genWidth = 245.5483f, nextGenLocation = 400.417f; //244.941f
     Rigidbody2D rb;
 
     public GameObject snowGenerator;
@@ -64,20 +63,9 @@ public class TileManager : MonoBehaviour
 
             clone.transform.position = new Vector3(tileRespawnPoint, 0, 0); // Moves the tile to the TRP
 
-            print("Width of the new tile = " + newWidth + ",  Width of the old tile = " + newWidth);
-            
+            //print("Width of the new tile = " + newWidth + ",  Width of the old tile = " + newWidth);
             //Destroy(collision.gameObject);
 
-        }
-
-        if (collision.gameObject.tag == "snowGenerator")
-        {
-            print("Collided with Snow Generator");
-            nextGenLocation = nextGenLocation + genWidth;
-
-            clone = Instantiate(snowGenerator, new Vector3(0, 0, 0), Quaternion.identity);
-            clone.transform.position = new Vector3(nextGenLocation, 58.87f, 0);
-            print("Spawning Snow Generator");
         }
     }
 }
