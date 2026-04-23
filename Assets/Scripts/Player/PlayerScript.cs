@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public bool inputSpeedUp, inputDiveDown, inputBallJump;
     public LayerMask groundLayer;
     public Vector3 pos;
+    public GameObject shadow;
 
     bool IsGrounded()
     {
@@ -47,6 +48,18 @@ public class PlayerScript : MonoBehaviour
         if (xvel >= speedLimit)
         {
             xvel = speedLimit;
+        }
+
+        //Draws a shadow directly underneath the player
+        Vector2 shadowPositionDown = transform.position;
+        Vector2 shadowDirectionDown = Vector2.down;
+        float shadowDistanceDown = 999f;
+
+        RaycastHit2D shadowDown = Physics2D.Raycast(shadowPositionDown, shadowDirectionDown, shadowDistanceDown, groundLayer);
+
+        if(shadowDown.collider != null)
+        {
+            shadow.transform.position = shadowDown.point;
         }
 
         // Makes the ball speed up, right click, grounded
