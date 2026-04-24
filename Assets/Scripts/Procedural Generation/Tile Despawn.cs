@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 // Script can't go on each tile
 public class TileDespawn : MonoBehaviour
