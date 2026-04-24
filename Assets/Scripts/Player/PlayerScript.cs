@@ -5,7 +5,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     Rigidbody2D rb;
-    public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit;
+    public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit, timeUntilXvelIncrease, diveSpeedIncreaseAmount, speedUpIncreaseAmount;
+    float timeUntilXvelIncreaseSave;
     public bool inputSpeedUp, inputDiveDown, inputBallJump;
     public LayerMask groundLayer;
     public Vector3 pos;
@@ -30,6 +31,8 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        timeUntilXvelIncreaseSave = timeUntilXvelIncrease;
     }
 
     // Update is called once per frame
@@ -43,6 +46,16 @@ public class PlayerScript : MonoBehaviour
         if (xvel >= speedLimit)
         {
             xvel = speedLimit;
+        }
+
+        // After X seconds, increases the dive speed and speed up speed of the player
+        timeUntilXvelIncrease = timeUntilXvelIncrease - Time.deltaTime;
+        if (timeUntilXvelIncrease < 0)
+        {
+            print("Speeding Up");
+            rightClickDiveSpeed = rightClickDiveSpeed + diveSpeedIncreaseAmount;
+            rightClickSpeedUp = rightClickSpeedUp + speedUpIncreaseAmount;
+            timeUntilXvelIncrease = timeUntilXvelIncreaseSave;
         }
 
         //Draws a shadow directly underneath the player
