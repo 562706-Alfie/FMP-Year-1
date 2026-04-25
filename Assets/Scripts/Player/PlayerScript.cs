@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     public bool inputSpeedUp, inputDiveDown, inputBallJump;
     public LayerMask groundLayer;
     public Vector3 pos;
-    public GameObject shadow;
+    public GameObject shadow, snowGroundParticleGenerator;
 
     bool IsGrounded()
     {
@@ -68,6 +68,18 @@ public class PlayerScript : MonoBehaviour
         if(shadowDown.collider != null)
         {
             shadow.transform.position = shadowDown.point;
+        }
+
+        //If player is on the ground, enable SnowGroundParticleGenerator, which spawns small snow particles on the ground
+        if (IsGrounded())
+        {
+            print("Enabling ground snow gen");
+            snowGroundParticleGenerator.SetActive(true);
+        }
+        else
+        {
+            print("Disabling ground snow gen");
+            snowGroundParticleGenerator.SetActive(false);
         }
 
         // Makes the ball speed up, right click, grounded
