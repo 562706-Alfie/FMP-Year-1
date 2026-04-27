@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonScript : MonoBehaviour
 {
-    //public variable to reference the button text - set this up in the Unity editor
+    // Script does NOT need to go on each button, only the canvas(or anything really)
     public bool isMusicPlayer;
 
     public void Start()
