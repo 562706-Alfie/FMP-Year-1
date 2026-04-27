@@ -1,18 +1,23 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     Rigidbody2D rb;
+
     public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit, timeUntilXvelIncrease, diveSpeedIncreaseAmount, speedUpIncreaseAmount;
     float timeUntilXvelIncreaseSave;
     public bool inputSpeedUp, inputDiveDown, inputBallJump;
+
     public LayerMask groundLayer;
     public Vector3 pos;
-    public GameObject shadow, snowGroundParticleGenerator;
 
-    bool IsGrounded()
+    public GameObject shadow, snowGroundParticleGenerator;
+    public GameManager gameManager;
+
+    public bool IsGrounded()
     {
         Vector2 positionDown = transform.position;
         Vector2 directionDown = Vector2.down;
@@ -71,17 +76,16 @@ public class PlayerScript : MonoBehaviour
         }
 
         //If player is on the ground, enable SnowGroundParticleGenerator, which spawns small snow particles on the ground
+        
         if (IsGrounded())
         {
-            print("Enabling ground snow gen");
             snowGroundParticleGenerator.SetActive(true);
         }
         else
         {
-            print("Disabling ground snow gen");
             snowGroundParticleGenerator.SetActive(false);
         }
-
+        
         // Makes the ball speed up, right click, grounded
         if (Input.GetKey(KeyCode.Mouse1) && IsGrounded())
         {
@@ -150,5 +154,14 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(-transform.up * rightClickDiveSpeed, ForceMode2D.Force); //Dives the player down
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "respawnSquare")
+        {
+            SceneManager.LoadScene("Main Scene");
+        }
+    }
+    
 }
 

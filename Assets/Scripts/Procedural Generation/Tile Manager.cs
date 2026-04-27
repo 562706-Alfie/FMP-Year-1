@@ -62,8 +62,6 @@ public class TileManager : MonoBehaviour
             clone.transform.position = new Vector3(tileRespawnPoint, 0, 0); // Moves the tile to the TRP
 
             //print("Width of the new tile = " + newWidth + ",  Width of the old tile = " + newWidth);
-            //Destroy(collision.gameObject);
-
         }
     }
 }

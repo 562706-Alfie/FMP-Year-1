@@ -44,7 +44,7 @@ public class camera_no_rotate : MonoBehaviour
         if (isCameraLocked == true)
         {
             transform.position = new Vector3(transform.position.x, cameraHeight, transform.position.z);
-            print("Camera Locked");
+            //print("Camera Locked");
         }
     }
 
