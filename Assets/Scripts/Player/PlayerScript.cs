@@ -36,7 +36,6 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
         timeUntilXvelIncreaseSave = timeUntilXvelIncrease;
     }
 
@@ -162,6 +161,15 @@ public class PlayerScript : MonoBehaviour
             SceneManager.LoadScene("Main Scene");
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "coin")
+        {
+            Destroy(collision.gameObject);
+            // Add +1 to points
+        }
+    }
+
 }
 

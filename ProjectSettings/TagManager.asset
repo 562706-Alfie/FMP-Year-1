@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Despawn
   - landTile
+  - snowGenerator
+  - respawnSquare
+  - coin
   layers:
   - Default
   - TransparentFX
