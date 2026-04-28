@@ -10,7 +10,7 @@
                     "name": "RightClickSpeedUp",
                     "type": "PassThrough",
                     "id": "2bdbdc2f-f61a-45d4-addc-521600679060",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Double",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -19,7 +19,7 @@
                     "name": "RightClickDiveDown",
                     "type": "PassThrough",
                     "id": "4dfe0d32-f277-4a7b-b5f8-4d4504ccf6c5",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Double",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false

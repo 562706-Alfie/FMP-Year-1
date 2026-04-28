@@ -1,7 +1,7 @@
 using Ilumisoft.HealthSystem;
 using Ilumisoft.HealthSystem.UI;
 using System;
-using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,13 +9,17 @@ public class GameManager : MonoBehaviour
 {
     // Use this script to manage the timer, score, and player health
 
-    public int maxHealth = 100, currentHealth, damageThreshold, randomNumber, coinSpawnChance, coinSpawnAirChance;
-    public float xvelPrevious, damageValue = 100, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate;
+    public int maxHealth = 100, currentHealth, damageThreshold, randomNumber, coinSpawnChance, coinSpawnAirChance, currentScore;
+    public float xvelPrevious, damageValue = 100, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer;
     float healthRegenerateTimerReturn;
     public bool damageTaken, inAir;
+
     public GameObject coin;
     public GameObject clone;
     public HealthBar healthBar;
+
+    public TextMeshProUGUI timerText, scoreText;
+
     public PlayerScript playerScript;
     public CollectableSpawner CollectableSpawner;
 
@@ -34,6 +38,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        //Timer
+        timer += Time.deltaTime;
+        timerText.text = ("Timer: ") + timer.ToString("0.00");
+
+        //Score
+        scoreText.text = ("Score: ") + currentScore.ToString();
+
         // If health is at 0, Reset the scene
         if(currentHealth < 0)
         {
@@ -69,9 +80,18 @@ public class GameManager : MonoBehaviour
                 speedCheckDelay = 0;
                 if(damageValue > 0)
                 {
+                    // Take health away eqaul to speed lost
                     int roundedDamageValue = Convert.ToInt32(Mathf.Round(damageValue));
                     takeDamage(roundedDamageValue);
                     timerHealthRegenerate = healthRegenerateTimerReturn;
+                }
+                else
+                {
+                    if (damageValue < -30)
+                    {
+                        // Add 1 to score, encourages smooth landing
+                        currentScore += 1;
+                    }
                 }
             }
         }

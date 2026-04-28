@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
@@ -16,6 +17,7 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject shadow, snowGroundParticleGenerator;
     public GameManager gameManager;
+
 
     public bool IsGrounded()
     {
@@ -74,8 +76,7 @@ public class PlayerScript : MonoBehaviour
             shadow.transform.position = shadowDown.point;
         }
 
-        //If player is on the ground, enable SnowGroundParticleGenerator, which spawns small snow particles on the ground
-        
+        // If player is on the ground, enable SnowGroundParticleGenerator, which spawns small snow particles on the ground
         if (IsGrounded())
         {
             snowGroundParticleGenerator.SetActive(true);
@@ -85,6 +86,7 @@ public class PlayerScript : MonoBehaviour
             snowGroundParticleGenerator.SetActive(false);
         }
         
+        // Movement 
         // Makes the ball speed up, right click, grounded
         if (Input.GetKey(KeyCode.Mouse1) && IsGrounded())
         {
@@ -167,7 +169,7 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.tag == "coin")
         {
             Destroy(collision.gameObject);
-            // Add +1 to points
+            gameManager.currentScore += 1;
         }
     }
 
