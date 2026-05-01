@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     // Use this script to manage the timer, score, and player health
 
     public int maxHealth = 100, currentHealth, damageThreshold, randomNumber, coinSpawnChance, coinSpawnAirChance, currentScore;
-    public float xvelPrevious, damageValue = 100, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer;
+    public float xvelPrevious, damageValue = 100, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer, tileManagerDifference;
     float healthRegenerateTimerReturn;
+    public Vector2 tileManagerOldPos, tileManagerNewPos;
     public bool damageTaken, inAir;
 
     public GameObject coin;
     public GameObject clone;
+    public GameObject tileManager;
     public HealthBar healthBar;
 
     public TextMeshProUGUI timerText, scoreText;
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
         inAir = false;;
         healthRegenerateTimerReturn = timerHealthRegenerate;
         coinSpawnAirChance = coinSpawnChance / 2; // Gives half a chance for coins to spawn in the air instead
+        tileManagerOldPos = tileManager.transform.position;
     }
 
     void Update()
@@ -101,11 +104,19 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         //Generates a random number between 0 and coinSpawnChance, spawns in coins and abilites depepnding on if the right number is chosen
-        randomNumber = UnityEngine.Random.Range(0, coinSpawnChance);
-        if (randomNumber == 1)
+        tileManagerNewPos.x = tileManager.transform.position.x;
+        tileManagerDifference = tileManagerNewPos.x - tileManagerOldPos.x;
+        if (tileManagerDifference > 1)
         {
-            print("1");
-            CoinSpawner(5);
+            print("Generating chance");
+            randomNumber = UnityEngine.Random.Range(0, coinSpawnChance);
+            if (randomNumber == 1)
+            {
+                print("1");
+                CoinSpawner(5);
+            }
+            tileManagerOldPos = tileManagerNewPos;
+            tileManagerDifference = 0;
         }
     }
 

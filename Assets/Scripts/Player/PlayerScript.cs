@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     public bool inputSpeedUp, inputDiveDown, inputBallJump;
 
     public LayerMask groundLayer;
-    public Vector3 pos;
+    public float xpos, ypos;
 
     public GameObject shadow, snowGroundParticleGenerator;
     public GameManager gameManager;
@@ -44,7 +44,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pos = transform.position;
+        xpos = transform.position.x;
+        ypos = transform.position.y;
 
         xvel = rb.linearVelocity.x;
         yvel = rb.linearVelocity.y;

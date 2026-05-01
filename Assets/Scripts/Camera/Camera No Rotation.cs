@@ -3,8 +3,9 @@ using UnityEngine;
 public class camera_no_rotate : MonoBehaviour
 {
 
-    [SerializeField] float cameraHeight, cameraSize, cameraZoomOutRate, cameraZoomInRate, cameraMaxZoom;
+    [SerializeField] float cameraHeight, cameraSize;
     public bool isCameraLocked = true;
+    public PlayerScript PlayerScript;
 
     void Start()
     {
@@ -12,40 +13,18 @@ public class camera_no_rotate : MonoBehaviour
     }
     void Update()
     {
-        /*
-        if (Input.GetKey(KeyCode.Q))
-        {
-            Camera.main.orthographicSize = Camera.main.orthographicSize + cameraZoomOutRate * Time.deltaTime;
-            if (Camera.main.orthographicSize > cameraMaxZoom)
-            {
-                Camera.main.orthographicSize = cameraMaxZoom;
-            }
-
-            if (Camera.main.orthographicSize > 100f)
-            {
-                print("Need to move camera up");
-                isCameraLocked = false;
-                if (Camera.main.orthographicSize < 61.77879f)
-                {
-                    isCameraLocked = true;
-                }
-            }
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            Camera.main.orthographicSize = Camera.main.orthographicSize + cameraZoomInRate * Time.deltaTime;
-            if (Camera.main.orthographicSize < 8)
-            {
-                Camera.main.orthographicSize = 8;
-            }
-        }
-        */
-        if (isCameraLocked == true)
+        // Locks camera height, increases and scales up when player moves up 
+        if (PlayerScript.ypos < 70)
         {
             transform.position = new Vector3(transform.position.x, cameraHeight, transform.position.z);
-            //print("Camera Locked");
         }
+        else
+        {
+            print("camera height increasing");
+            Camera.main.orthographicSize = Camera.main.orthographicSize + PlayerScript.yvel * Time.deltaTime;
+        }
+
+            print("camera y = " + transform.position.y);
     }
 
 }
