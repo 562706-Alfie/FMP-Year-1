@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1949062894749271197}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.325, y: 0.325, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5093408546560752590}
@@ -177,7 +177,7 @@ Transform:
   m_GameObject: {fileID: 5184403704032351368}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -20.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -196,4 +196,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30f691e3c5f2774a8bd313187dd4d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileDespawn
-  timeToDespawn: 120
+  timeToDespawn: 60

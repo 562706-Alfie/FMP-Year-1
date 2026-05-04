@@ -2,6 +2,7 @@ using Ilumisoft.HealthSystem;
 using Ilumisoft.HealthSystem.UI;
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,16 +10,19 @@ public class GameManager : MonoBehaviour
 {
     // Use this script to manage the timer, score, and player health
 
-    public int maxHealth = 100, currentHealth, damageThreshold, randomNumber, coinSpawnChance, coinSpawnAirChance, currentScore;
-    public float xvelPrevious, damageValue = 100, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer, tileManagerDifference;
+    public int damageThreshold, randomNumber, coinSpawnChance, coinSpawnAirChance, currentScore;
+    public float xvelPrevious, damageValue = 100, maxHealth = 100, currentHealth, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer, tileManagerDifference;
     float healthRegenerateTimerReturn;
     public Vector2 tileManagerOldPos, tileManagerNewPos;
-    public bool damageTaken, inAir;
+    public bool damageTaken, inAir, playHealingSFX;
 
     public GameObject coin;
     public GameObject clone;
     public GameObject tileManager;
+
     public HealthBar healthBar;
+    public ButtonScript ButtonScript;
+    public Sound[] sound;
 
     public TextMeshProUGUI timerText, scoreText;
 
@@ -37,6 +41,7 @@ public class GameManager : MonoBehaviour
         healthRegenerateTimerReturn = timerHealthRegenerate;
         coinSpawnAirChance = coinSpawnChance / 2; // Gives half a chance for coins to spawn in the air instead
         tileManagerOldPos = tileManager.transform.position;
+        playHealingSFX = true;
     }
 
     void Update()
@@ -48,18 +53,45 @@ public class GameManager : MonoBehaviour
         //Score
         scoreText.text = ("Score: ") + currentScore.ToString();
 
-        // If health is at 0, Reset the scene
+        // If health is at 0, Open death panel
         if(currentHealth < 0)
         {
-            SceneManager.LoadScene("Main Scene");
+            AudioManager.instance.Play("Death");
+            ButtonScript.OpenDeathPanel();
         }
 
         //Timer unitl health regenerates
         timerHealthRegenerate -= Time.deltaTime;
-        if (timerHealthRegenerate < 0)
+        if (timerHealthRegenerate < 0 && currentHealth <= 100)
         {
             healthBar.RegenerateHealth();
+            if (playHealingSFX == true && currentHealth < maxHealth)
+            {
+                AudioManager.instance.Play("Healing");
+                playHealingSFX = false;
+            }
+
+            if (currentHealth >= maxHealth)
+            {
+                playHealingSFX = true;
+            }
+
+            //Do the healing sfx looping and ending here?
         }
+
+        /*
+        Sound.sound.loop = false;
+        s.loop = true;
+
+        foreach (Sound s in sound)
+        {
+            if (s.name == "Music")
+            {
+                s.loop = true;   
+                s.source.loop = s.loop;
+            }
+        }
+        */
 
         // When the player hits the ground, need to compare speed they were going(xvelPrevious) vs speed they are now(xvel). Remove health based on that difference
         if (!playerScript.IsGrounded())
@@ -86,7 +118,6 @@ public class GameManager : MonoBehaviour
                     // Take health away eqaul to speed lost
                     int roundedDamageValue = Convert.ToInt32(Mathf.Round(damageValue));
                     takeDamage(roundedDamageValue);
-                    timerHealthRegenerate = healthRegenerateTimerReturn;
                 }
                 else
                 {
@@ -127,9 +158,10 @@ public class GameManager : MonoBehaviour
 
     public void takeDamage(int damage)
     {
+        timerHealthRegenerate = healthRegenerateTimerReturn;
         currentHealth -= damage;
-
         healthBar.SetHealth(currentHealth);
+        AudioManager.instance.Play("Hit");
     }
 }
 

@@ -16,7 +16,9 @@ public class PlayerScript : MonoBehaviour
     public float xpos, ypos;
 
     public GameObject shadow, snowGroundParticleGenerator;
+
     public GameManager gameManager;
+    public ButtonScript ButtonScript;
 
 
     public bool IsGrounded()
@@ -53,6 +55,10 @@ public class PlayerScript : MonoBehaviour
         if (xvel >= speedLimit)
         {
             xvel = speedLimit;
+        }
+
+        {
+            
         }
 
         // After X seconds, increases the dive speed and speed up speed of the player
@@ -161,7 +167,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "respawnSquare")
         {
-            SceneManager.LoadScene("Main Scene");
+            AudioManager.instance.Play("Death");
+            ButtonScript.OpenDeathPanel();
         }
     }
 
@@ -169,6 +176,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "coin")
         {
+            AudioManager.instance.Play("Coin");
             Destroy(collision.gameObject);
             gameManager.currentScore += 1;
         }

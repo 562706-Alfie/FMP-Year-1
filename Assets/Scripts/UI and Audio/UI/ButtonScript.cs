@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 public class ButtonScript : MonoBehaviour
 {
     // Script does NOT need to go on each button, only the canvas(or anything really)
+    // When using this in the future please rename the methods.
     public bool isMusicPlayer;
+    public GameObject deathPanel;
 
     public void Start()
     {
@@ -52,6 +54,22 @@ public class ButtonScript : MonoBehaviour
     public void PlaySelectBack()
     {
         AudioManager.instance.Play("MenuBack");
+    }
+
+    public void PauseButton()
+    {
+        Time.timeScale = 0f;
+    }
+    public void UnPauseButton()
+    {
+        Time.timeScale = 1.0f;
+    }
+
+    public void OpenDeathPanel()
+    {
+        deathPanel.SetActive(true);
+        Time.timeScale = 0f;
+        AudioManager.instance.Play("Death");
     }
 
     public void QuitGame()
