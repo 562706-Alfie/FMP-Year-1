@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit, timeUntilXvelIncrease, diveSpeedIncreaseAmount, speedUpIncreaseAmount;
     float timeUntilXvelIncreaseSave;
     public bool inputSpeedUp, inputDiveDown, inputBallJump;
+    bool regenHealth;
 
     public LayerMask groundLayer;
     public float xpos, ypos;
@@ -19,6 +20,7 @@ public class PlayerScript : MonoBehaviour
 
     public GameManager gameManager;
     public ButtonScript ButtonScript;
+    public HealthBar HealthBar;
 
 
     public bool IsGrounded()
@@ -92,7 +94,7 @@ public class PlayerScript : MonoBehaviour
         {
             snowGroundParticleGenerator.SetActive(false);
         }
-        
+
         // Movement 
         // Makes the ball speed up, right click, grounded
         if (Input.GetKey(KeyCode.Mouse1) && IsGrounded())
@@ -161,6 +163,16 @@ public class PlayerScript : MonoBehaviour
         {
             rb.AddForce(-transform.up * rightClickDiveSpeed, ForceMode2D.Force); //Dives the player down
         }
+
+        // Regenerates health continuously
+        if (regenHealth == true)
+        {
+            HealthBar.RegenerateHealth();
+            if (gameManager.currentHealth >= gameManager.maxHealth)
+            {
+                regenHealth = false;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -176,11 +188,29 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "coin")
         {
+            print("Coin collided");
+            gameManager.currentScore += 1;
             AudioManager.instance.Play("Coin");
             Destroy(collision.gameObject);
-            gameManager.currentScore += 1;
+        }
+
+        if (collision.gameObject.tag == "healthRegen")
+        {
+            //AudioManager.instance.Play("Coin");
+            if(gameManager.currentHealth < gameManager.maxHealth)
+            {
+                regenHealth = true;
+            }
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "healthPack")
+        {
+            //AudioManager.instance.Play("Coin");
+            //gameManager.currentHealth += gameManager.healthPackHealthAmount;
+            HealthBar.HealthPack();
+            Destroy(collision.gameObject);
         }
     }
-
 }
 

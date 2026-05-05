@@ -29,4 +29,14 @@ public class HealthBar : MonoBehaviour
         gameManager.currentHealth += gameManager.rateHealthRegenerate;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+    public void HealthPack()
+    {
+        slider.value += gameManager.healthPackHealthAmount;
+        gameManager.currentHealth += gameManager.healthPackHealthAmount;
+        if (gameManager.currentHealth > gameManager.maxHealth)
+        {
+            gameManager.currentHealth = gameManager.maxHealth;
+        }
+        fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
 }

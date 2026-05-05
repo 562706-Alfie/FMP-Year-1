@@ -9,6 +9,8 @@ TagManager:
   - snowGenerator
   - respawnSquare
   - coin
+  - healthRegen
+  - healthPack
   layers:
   - Default
   - TransparentFX

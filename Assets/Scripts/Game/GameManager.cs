@@ -10,13 +10,15 @@ public class GameManager : MonoBehaviour
 {
     // Use this script to manage the timer, score, and player health
 
-    public int damageThreshold, randomNumber, coinSpawnChance, coinSpawnAirChance, currentScore;
-    public float xvelPrevious, damageValue = 100, maxHealth = 100, currentHealth, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer, tileManagerDifference;
+    public int damageThreshold, randomNumber, collectableSpawnChance, coinSpawnAirChance, currentScore;
+    public float xvelPrevious, damageValue = 100, maxHealth = 100, currentHealth, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer, tileManagerDifference, healthPackHealthAmount;
     float healthRegenerateTimerReturn;
     public Vector2 tileManagerOldPos, tileManagerNewPos;
     public bool damageTaken, inAir, playHealingSFX;
 
     public GameObject coin;
+    public GameObject healthRegenCollectable;
+    public GameObject healthPackCollectable;
     public GameObject clone;
     public GameObject tileManager;
 
@@ -38,8 +40,7 @@ public class GameManager : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         damageTaken = false;
         inAir = false;;
-        healthRegenerateTimerReturn = timerHealthRegenerate;
-        coinSpawnAirChance = coinSpawnChance / 2; // Gives half a chance for coins to spawn in the air instead
+        coinSpawnAirChance = collectableSpawnChance / 2; // Gives half a chance for coins to spawn in the air instead
         tileManagerOldPos = tileManager.transform.position;
         playHealingSFX = true;
     }
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
         }
 
         //Timer unitl health regenerates
-        timerHealthRegenerate -= Time.deltaTime;
+        /*
         if (timerHealthRegenerate < 0 && currentHealth <= 100)
         {
             healthBar.RegenerateHealth();
@@ -139,12 +140,23 @@ public class GameManager : MonoBehaviour
         tileManagerDifference = tileManagerNewPos.x - tileManagerOldPos.x;
         if (tileManagerDifference > 1)
         {
-            print("Generating chance");
-            randomNumber = UnityEngine.Random.Range(0, coinSpawnChance);
-            if (randomNumber == 1)
+            randomNumber = UnityEngine.Random.Range(0, collectableSpawnChance);
+            if (randomNumber <= 10)
             {
-                print("1");
+                print("Coin");
                 CoinSpawner(5);
+            }
+
+            if(randomNumber == 10)
+            {
+                print("Health Regen");
+                HealthRegenSpawner();
+            }
+
+            if (randomNumber == 11)
+            {
+                print("Health Pack");
+                HealthPackSpawner();
             }
             tileManagerOldPos = tileManagerNewPos;
             tileManagerDifference = 0;
@@ -154,6 +166,15 @@ public class GameManager : MonoBehaviour
     public void CoinSpawner(int coinsToSpawn)
     {
         CollectableSpawner.spawnPoint = Instantiate(coin);
+    }
+
+    public void HealthRegenSpawner()
+    {
+        CollectableSpawner.spawnPoint = Instantiate(healthRegenCollectable);
+    }
+    public void HealthPackSpawner()
+    {
+        CollectableSpawner.spawnPoint = Instantiate(healthPackCollectable);
     }
 
     public void takeDamage(int damage)
