@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit, timeUntilXvelIncrease, diveSpeedIncreaseAmount, speedUpIncreaseAmount, timeUnitilPlayerControl;
     float timeUntilXvelIncreaseSave;
     public bool inputSpeedUp, inputDiveDown, inputBallJump;
-    bool regenHealth;
+    bool regenHealth, playerEntrance;
 
     public LayerMask groundLayer;
     public float xpos, ypos;
@@ -43,8 +43,8 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         timeUntilXvelIncreaseSave = timeUntilXvelIncrease;
-        xvel = 10;
-        yvel = 20;
+        //xvel = 10;
+        //yvel = 20;
     }
 
     // Update is called once per frame
@@ -56,21 +56,9 @@ public class PlayerScript : MonoBehaviour
         xvel = rb.linearVelocity.x;
         yvel = rb.linearVelocity.y;
 
-        timeUnitilPlayerControl -= Time.deltaTime;
-
         if (xvel >= speedLimit)
         {
             xvel = speedLimit;
-        }
-
-        // After X seconds, increases the dive speed and speed up speed of the player
-        timeUntilXvelIncrease = timeUntilXvelIncrease - Time.deltaTime;
-        if (timeUntilXvelIncrease < 0)
-        {
-            print("Speeding Up");
-            rightClickDiveSpeed = rightClickDiveSpeed + diveSpeedIncreaseAmount;
-            rightClickSpeedUp = rightClickSpeedUp + speedUpIncreaseAmount;
-            timeUntilXvelIncrease = timeUntilXvelIncreaseSave;
         }
 
         //Draws a shadow directly underneath the player
@@ -143,6 +131,27 @@ public class PlayerScript : MonoBehaviour
 
     public void FixedUpdate()
     {
+        // Timer until player can use controls at the start of a game
+        timeUnitilPlayerControl -= Time.deltaTime;
+
+        // Boosts the player up at the start of the game. Doesn't work in start for some reason?
+        if (playerEntrance == false)
+        {
+            xvel = 10;
+            yvel = 20;
+            playerEntrance = true;
+        }
+
+        // After X seconds, increases the dive speed and speed up speed of the player
+        timeUntilXvelIncrease = timeUntilXvelIncrease - Time.deltaTime;
+        if (timeUntilXvelIncrease < 0)
+        {
+            print("Speeding Up");
+            rightClickDiveSpeed = rightClickDiveSpeed + diveSpeedIncreaseAmount;
+            rightClickSpeedUp = rightClickSpeedUp + speedUpIncreaseAmount;
+            timeUntilXvelIncrease = timeUntilXvelIncreaseSave;
+        }
+
         // Makes the ball speed up, right click, grounded
         if (inputSpeedUp == true)
         {

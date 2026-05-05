@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class camera_no_rotate : MonoBehaviour
 {
-
+    // If (Ypos - 36) exceeds camera size, stop growing
     [SerializeField] float cameraHeight, cameraSize;
     public bool isCameraLocked = true;
     public PlayerScript PlayerScript;
