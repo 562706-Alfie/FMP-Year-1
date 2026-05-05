@@ -11,10 +11,14 @@ public class GameManager : MonoBehaviour
     // Use this script to manage the timer, score, and player health
 
     public int damageThreshold, randomNumber, collectableSpawnChance, coinSpawnAirChance, currentScore;
+    public int difficulty;
     public float xvelPrevious, damageValue = 100, maxHealth = 100, currentHealth, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer, tileManagerDifference, healthPackHealthAmount;
     float healthRegenerateTimerReturn;
     public Vector2 tileManagerOldPos, tileManagerNewPos;
     public bool damageTaken, inAir, playHealingSFX;
+    bool deathPanelOpen = false;
+
+    public static GameManager GameManagerinstance;
 
     public GameObject coin;
     public GameObject healthRegenCollectable;
@@ -34,6 +38,10 @@ public class GameManager : MonoBehaviour
     //Turning "damageThreshold" up decreases the chance of smaller jumps dealing damage
     // coinSpawnChance, lower is higher chance
 
+    void Awake()
+    {
+        Time.timeScale = 1.0f;
+    }
     void Start()
     {
         currentHealth = maxHealth;
@@ -43,6 +51,8 @@ public class GameManager : MonoBehaviour
         coinSpawnAirChance = collectableSpawnChance / 2; // Gives half a chance for coins to spawn in the air instead
         tileManagerOldPos = tileManager.transform.position;
         playHealingSFX = true;
+        difficulty = PlayerPrefs.GetInt("Difficulty");
+        damageThreshold = difficulty;
     }
 
     void Update()
@@ -55,10 +65,10 @@ public class GameManager : MonoBehaviour
         scoreText.text = ("Score: ") + currentScore.ToString();
 
         // If health is at 0, Open death panel
-        if(currentHealth < 0)
+        if(currentHealth < 0 && deathPanelOpen == false)
         {
-            AudioManager.instance.Play("Death");
             ButtonScript.OpenDeathPanel();
+            deathPanelOpen = true;
         }
 
         //Timer unitl health regenerates
@@ -79,6 +89,7 @@ public class GameManager : MonoBehaviour
 
             //Do the healing sfx looping and ending here?
         }
+        */
 
         /*
         Sound.sound.loop = false;
@@ -86,7 +97,7 @@ public class GameManager : MonoBehaviour
 
         foreach (Sound s in sound)
         {
-            if (s.name == "Music")
+            if (s.name == "MainTheme")
             {
                 s.loop = true;   
                 s.source.loop = s.loop;

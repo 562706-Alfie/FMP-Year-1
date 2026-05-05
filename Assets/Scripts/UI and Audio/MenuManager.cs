@@ -5,11 +5,23 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     float musicVol, sfxVol, oldMusicSlider;
+    public int difficulty;
 
     public Slider musicSlider;
     public Slider sfxSlider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Awake()
+    {
+        if (PlayerPrefs.HasKey("Difficulty"))
+        {
+            difficulty = PlayerPrefs.GetInt("Difficulty");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Difficulty", 0);
+        }
+    }
 
     void Start()
     {
@@ -24,6 +36,11 @@ public class MenuManager : MonoBehaviour
         AudioManager.instance.Play("NewMenuBackground2");
 
 
+    }
+
+    public void Update()
+    {
+        PlayerPrefs.SetInt("Difficulty", difficulty);
     }
 
     public void MusicDisable()

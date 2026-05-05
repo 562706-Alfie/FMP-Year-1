@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
 
     Rigidbody2D rb;
 
-    public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit, timeUntilXvelIncrease, diveSpeedIncreaseAmount, speedUpIncreaseAmount;
+    public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit, timeUntilXvelIncrease, diveSpeedIncreaseAmount, speedUpIncreaseAmount, timeUnitilPlayerControl;
     float timeUntilXvelIncreaseSave;
     public bool inputSpeedUp, inputDiveDown, inputBallJump;
     bool regenHealth;
@@ -43,6 +43,8 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         timeUntilXvelIncreaseSave = timeUntilXvelIncrease;
+        xvel = 10;
+        yvel = 20;
     }
 
     // Update is called once per frame
@@ -54,13 +56,11 @@ public class PlayerScript : MonoBehaviour
         xvel = rb.linearVelocity.x;
         yvel = rb.linearVelocity.y;
 
+        timeUnitilPlayerControl -= Time.deltaTime;
+
         if (xvel >= speedLimit)
         {
             xvel = speedLimit;
-        }
-
-        {
-            
         }
 
         // After X seconds, increases the dive speed and speed up speed of the player
@@ -96,50 +96,49 @@ public class PlayerScript : MonoBehaviour
         }
 
         // Movement 
-        // Makes the ball speed up, right click, grounded
-        if (Input.GetKey(KeyCode.Mouse1) && IsGrounded())
+        if (timeUnitilPlayerControl <= 0)
         {
-            inputSpeedUp = true;
+            // Makes the ball speed up, right click, grounded
+            if (Input.GetKey(KeyCode.Mouse1) && IsGrounded())
+            {
+                inputSpeedUp = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Mouse1) || !IsGrounded())
+            {
+                inputSpeedUp = false;
+            }
+
+            rb.linearVelocity = new Vector3(xvel, yvel, 0);
+
+
+            // Makes the ball Jump, left click, grounded
+            if (Input.GetKey(KeyCode.Mouse0) && IsGrounded())
+            {
+                inputBallJump = true;
+                //yvel = jumpSpeed; // Doesn't work in FixedUpdate for some reason
+            }
+
+            //if (Input.GetKeyUp(KeyCode.Mouse0) || !IsGrounded())
+            {
+                inputBallJump = false;
+            }
+
+            rb.linearVelocity = new Vector3(xvel, yvel, 0);
+
+            // Makes the ball dive down, right click, air
+            if (Input.GetKey(KeyCode.Mouse1) && !IsGrounded())
+            {
+                inputDiveDown = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Mouse1) || IsGrounded())
+            {
+                inputDiveDown = false;
+            }
+
+            rb.linearVelocity = new Vector3(xvel, yvel, 0);
         }
-
-        if (Input.GetKeyUp(KeyCode.Mouse1) || !IsGrounded())
-        {
-            inputSpeedUp = false;
-        }
-
-        rb.linearVelocity = new Vector3(xvel, yvel, 0);
-
-
-        // Makes the ball Jump, left click, grounded
-        if (Input.GetKey(KeyCode.Mouse0) && IsGrounded())
-        {
-            inputBallJump = true;
-            //yvel = jumpSpeed; // Doesn't work in FixedUpdate for some reason
-        }
-
-        if (Input.GetKeyUp(KeyCode.Mouse0) || !IsGrounded())
-        {
-            inputBallJump = false;
-        }
-
-        rb.linearVelocity = new Vector3(xvel, yvel, 0);
-
-        // Makes the ball spin, left click, air
-        // Depends on whether I add skis
-
-
-        // Makes the ball dive down, right click, air
-        if (Input.GetKey(KeyCode.Mouse1) && !IsGrounded ())
-        {
-            inputDiveDown = true;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Mouse1) || IsGrounded())
-        {
-            inputDiveDown = false;
-        }
-
-        rb.linearVelocity = new Vector3(xvel, yvel, 0);
     }
 
     public void FixedUpdate()
@@ -179,7 +178,6 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "respawnSquare")
         {
-            AudioManager.instance.Play("Death");
             ButtonScript.OpenDeathPanel();
         }
     }

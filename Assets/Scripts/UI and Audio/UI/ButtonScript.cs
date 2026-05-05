@@ -7,10 +7,10 @@ public class ButtonScript : MonoBehaviour
     // When using this in the future please rename the methods.
     public bool isMusicPlayer;
     public GameObject deathPanel;
-
+    public MenuManager menuManager;
     public void Start()
     {
-        
+
         if (isMusicPlayer == true)
         {
             FindFirstObjectByType<AudioManager>().Play("MainTheme");
@@ -70,6 +70,11 @@ public class ButtonScript : MonoBehaviour
         deathPanel.SetActive(true);
         Time.timeScale = 0f;
         AudioManager.instance.Play("Death");
+    }
+
+    public void SetDifficulty(int difficulty)
+    {
+        menuManager.difficulty = difficulty;
     }
 
     public void QuitGame()
