@@ -40,10 +40,6 @@ public class GameManager : MonoBehaviour
     //Turning "damageThreshold" up decreases the chance of smaller jumps dealing damage
     // coinSpawnChance, lower is higher chance
 
-    void Awake()
-    {
-        //Time.timeScale = 1.0f;
-    }
     void Start()
     {
         currentHealth = maxHealth;
@@ -69,8 +65,20 @@ public class GameManager : MonoBehaviour
         timer += Time.deltaTime;
         timerText.text = ("Timer: ") + timer.ToString("0.00");
 
+        // Best Time
+        if (timer > PlayerPrefs.GetFloat("BestTime"))
+        {
+            PlayerPrefs.SetFloat("BestTime", timer);
+        }
+
         // Score
         scoreText.text = ("Score: ") + currentScore.ToString();
+
+        // Best Score
+        if (currentScore > PlayerPrefs.GetInt("BestScore"))
+        {
+            PlayerPrefs.SetInt("BestScore", currentScore);
+        }
 
         // Smooth landing timer
         SmoothLandingPopUpTimer += Time.deltaTime;
@@ -128,6 +136,10 @@ public class GameManager : MonoBehaviour
         {
             smoothLandingMultiplier = 0;
         }
+
+        // Pop Up for speed and getting a certain score?
+
+
         /*
         if (damageValue > 0 && hasBadLandingPoppedUp == false && playerScript.IsGrounded())
         {
