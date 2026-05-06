@@ -12,12 +12,12 @@ public class GameManager : MonoBehaviour
     // Use this script to manage the timer, score, and player health
 
     public int damageThreshold, randomNumber, collectableSpawnChance, coinSpawnAirChance, currentScore;
-    int difficulty, smoothLandingMultiplier;
+    int difficulty, smoothLandingMultiplier, globalCoinsToSpawn;
     public float xvelPrevious, damageValue = 100, maxHealth = 100, currentHealth, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer, tileManagerDifference, healthPackHealthAmount, SmoothLandingPopUpTimer;
     float healthRegenerateTimerReturn;
     public Vector2 tileManagerOldPos, tileManagerNewPos;
     public bool damageTaken, inAir, playHealingSFX;
-    bool deathPanelOpen = false, hasSmoothLandingMultiplierTextPoppedUp, hasBadLandingPoppedUp, hasText1PoppedUp, hasText2PoppedUp;
+    bool deathPanelOpen = false, hasSmoothLandingMultiplierTextPoppedUp, hasBadLandingPoppedUp, hasText1PoppedUp, hasText2PoppedUp, coinSpawnDelay;
 
     public static GameManager GameManagerinstance;
 
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         // Timer
         timer += Time.deltaTime;
-        timerText.text = ("Timer: ") + timer.ToString("0.00");
+        timerText.text = "Timer: " + timer.ToString("0.00") + "s";
 
         // Best Time
         if (timer > PlayerPrefs.GetFloat("BestTime"))
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         if (playerScript.ypos > 47f && hasText1PoppedUp == false)
         {
             GameObject popUp = Instantiate(PopUpText, PopUpTextLocation.transform.position, Quaternion.identity);
-            popUp.GetComponentInChildren<TMP_Text>().text = ("SKY HIGH!                           +2");
+            popUp.GetComponentInChildren<TMP_Text>().text = ("SKY HIGH!                                                          +2");
             currentScore += +2;
             hasText1PoppedUp = true;
         }
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         if (playerScript.ypos > 110f && hasText2PoppedUp == false)
         {
             GameObject popUp = Instantiate(PopUpText, PopUpTextLocation.transform.position, Quaternion.identity);
-            popUp.GetComponentInChildren<TMP_Text>().text = ("ABOVE THE CLOUDS!                    +4");
+            popUp.GetComponentInChildren<TMP_Text>().text = ("ABOVE THE CLOUDS!                                        +4");
             currentScore += +4;
             hasText2PoppedUp = true;
         }
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
             SmoothLandingPopUpTimer = 0f; // Prevents multiple pop ups when bouncing up and down off the ground too quickly
             smoothLandingMultiplier += 1; // +1 to the "multiplier"
             GameObject popUp = Instantiate(PopUpText, PopUpTextLocation.transform.position, Quaternion.identity);
-            popUp.GetComponentInChildren<TMP_Text>().text = ("SMOOTH LANDING!                    +" + smoothLandingMultiplier);
+            popUp.GetComponentInChildren<TMP_Text>().text = ("SMOOTH LANDING!                                        +" + smoothLandingMultiplier);
             currentScore += smoothLandingMultiplier;
             hasSmoothLandingMultiplierTextPoppedUp = true; // Stops multiple from coming up(every 1 second) when staying on the ground
             speedCheckDelay = 0; // Needs to be here, not in damage check
@@ -239,20 +239,31 @@ public class GameManager : MonoBehaviour
             randomNumber = UnityEngine.Random.Range(0, collectableSpawnChance);
             if (randomNumber <= 10)
             {
-                print("Coin");
-                CoinSpawner(5);
+                print("Single Coin");
+                CoinSpawner(1);
             }
 
-            if(randomNumber == 10)
+            if (randomNumber >= 11 && randomNumber < 16)
+            {
+                print("10 Coins");
+                CoinSpawner(10);
+            }
+
+            if(randomNumber == 17)
             {
                 print("Health Regen");
                 HealthRegenSpawner();
             }
 
-            if (randomNumber == 11)
+            if (randomNumber == 18)
             {
                 print("Health Pack");
                 HealthPackSpawner();
+            }
+            coinSpawnDelay = true;
+            if (globalCoinsToSpawn > 0)
+            {
+                CoinSpawner(globalCoinsToSpawn);
             }
             tileManagerOldPos = tileManagerNewPos;
             tileManagerDifference = 0;
@@ -261,7 +272,14 @@ public class GameManager : MonoBehaviour
 
     public void CoinSpawner(int coinsToSpawn)
     {
-        CollectableSpawner.spawnPoint = Instantiate(coin);
+        if(coinSpawnDelay == true && coinsToSpawn > 0)
+        {
+            coinsToSpawn -= 1;
+            globalCoinsToSpawn = coinsToSpawn;
+            CollectableSpawner.spawnPoint = Instantiate(coin);
+            print(coinsToSpawn);
+            coinSpawnDelay = false;
+        }
     }
 
     public void HealthRegenSpawner()

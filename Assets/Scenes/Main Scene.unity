@@ -27876,10 +27876,10 @@ MonoBehaviour:
   currentHealth: 0
   speedCheckDelay: 0
   timerHealthRegenerate: 5
-  rateHealthRegenerate: 0.14
+  rateHealthRegenerate: 0.07
   timer: 0
   tileManagerDifference: 0
-  healthPackHealthAmount: 50
+  healthPackHealthAmount: 25
   SmoothLandingPopUpTimer: 0
   tileManagerOldPos: {x: 0, y: 0}
   tileManagerNewPos: {x: 0, y: 0}
