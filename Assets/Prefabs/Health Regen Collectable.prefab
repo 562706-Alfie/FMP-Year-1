@@ -218,7 +218,6 @@ GameObject:
   m_Component:
   - component: {fileID: 744384713849751086}
   - component: {fileID: 273394780025344424}
-  - component: {fileID: 3787118486522311483}
   - component: {fileID: 8671637292101033834}
   m_Layer: 0
   m_Name: Health Regen Collectable
@@ -278,21 +277,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.00000011920929, y: 0}
-  m_Radius: 0.7419373
---- !u!114 &3787118486522311483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3189771072900911960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30f691e3c5f2774a8bd313187dd4d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TileDespawn
-  timeToDespawn: 60
+  m_Offset: {x: 0.00000011920929, y: 0.9991856}
+  m_Radius: 0.74193734
 --- !u!95 &8671637292101033834
 Animator:
   serializedVersion: 7

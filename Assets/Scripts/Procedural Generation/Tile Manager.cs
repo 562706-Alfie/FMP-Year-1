@@ -7,14 +7,18 @@ public class TileManager : MonoBehaviour
     public Transform respawnPoint;
     public PlayerScript PS;
     public float newWidth = 38.84f, oldWidth = 121.9f, tileRespawnPoint = 121.9f, oldTileRespawnPoint; // dont change these or it will probably break
+    public int tilesSpawned = 0;
     Rigidbody2D rb;
 
     public GameObject snowGenerator;
+    public GameObject player;
 
     List<GameObject> tileList = new List<GameObject>();
     public GameObject tile1;
     public GameObject tile2;
     public GameObject tile3;
+
+    public GameManager gameManager;
 
     GameObject clone;
 
@@ -24,6 +28,8 @@ public class TileManager : MonoBehaviour
         tileList.Add(tile2);
         tileList.Add(tile3);
 
+        tilesSpawned = 0;
+
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -31,18 +37,30 @@ public class TileManager : MonoBehaviour
     {
         float xvelo;
         xvelo = rb.linearVelocity.x;
-        xvelo = PS.xvel;
 
-        if (xvelo <= 0)
+        if (gameManager.finishedLoading == false)
         {
-            xvelo = 0;
+            xvelo = 300;
+            rb.linearVelocity = new Vector3(xvelo, 0, 0);
         }
 
-        if (xvelo >= PS.speedLimit)
+        if (gameManager.finishedLoading == true)
         {
-            xvelo = PS.speedLimit;
+            xvelo = PS.xvel;
+
+            if (xvelo <= 0)
+            {
+                xvelo = 0;
+            }
+
+            if (xvelo >= PS.speedLimit)
+            {
+                xvelo = PS.speedLimit;
+            }
+
+            rb.linearVelocity = new Vector3(xvelo, 0, 0);
         }
-        rb.linearVelocity = new Vector3(xvelo, 0, 0);
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,6 +78,7 @@ public class TileManager : MonoBehaviour
             tileRespawnPoint = startX + (oldWidth / 2) + (newWidth / 2); // find the correct location of the TRP
 
             clone.transform.position = new Vector3(tileRespawnPoint, 0, 0); // Moves the tile to the TRP
+            tilesSpawned += 1; // Used for spawning in tiles at the start of the game
 
             //print("Width of the new tile = " + newWidth + ",  Width of the old tile = " + newWidth);
         }

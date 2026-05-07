@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3859117085635485824}
   - component: {fileID: 5613357443667459435}
   - component: {fileID: 7116014900189166671}
-  - component: {fileID: 7318826372301678212}
   m_Layer: 0
   m_Name: Tile 2 Box
   m_TagString: landTile
@@ -142,19 +141,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0415792, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7318826372301678212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046139032986781000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30f691e3c5f2774a8bd313187dd4d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TileDespawn
-  timeToDespawn: 60
 --- !u!1 &3811358116651725772
 GameObject:
   m_ObjectHideFlags: 0

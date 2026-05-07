@@ -1,3 +1,4 @@
+using Ilumisoft.HealthSystem.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -11,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit, timeUntilXvelIncrease, diveSpeedIncreaseAmount, speedUpIncreaseAmount, timeUnitilPlayerControl;
     float timeUntilXvelIncreaseSave;
     public bool inputSpeedUp, inputDiveDown, inputBallJump;
-    bool regenHealth, playerEntrance;
+    bool regenHealth, playerEntrance, setMaxHealth;
 
     public LayerMask groundLayer;
     public float xpos, ypos;
@@ -132,18 +133,33 @@ public class PlayerScript : MonoBehaviour
     public void FixedUpdate()
     {
         // Timer until player can use controls at the start of a game
-        timeUnitilPlayerControl -= Time.deltaTime;
+        if (gameManager.finishedLoading == true)
+        {
+            timeUnitilPlayerControl -= Time.deltaTime;
+            if (setMaxHealth == false)
+            {
+                gameManager.currentHealth = gameManager.maxHealth;
+                HealthBar.SetMaxHealth(gameManager.maxHealth);
+                setMaxHealth = true;
+            }
+        }
 
-        // Boosts the player up at the start of the game. Doesn't work in start for some reason?
-        if (playerEntrance == false)
+        // Boosts the player up at the start of the game AND if the game has finished loading
+        if (playerEntrance == false && gameManager.finishedLoading == true)
         {
             xvel = 10;
             yvel = 20;
             playerEntrance = true;
         }
+        
+        if (playerEntrance == false && gameManager.finishedLoading == false)
+        {
+            xvel = 0;
+            yvel = 0;
+        }
 
-        // After X seconds, increases the dive speed and speed up speed of the player
-        timeUntilXvelIncrease = timeUntilXvelIncrease - Time.deltaTime;
+            // After X seconds, increases the dive speed and speed up speed of the player
+            timeUntilXvelIncrease = timeUntilXvelIncrease - Time.deltaTime;
         if (timeUntilXvelIncrease < 0)
         {
             print("Speeding Up");
@@ -176,6 +192,7 @@ public class PlayerScript : MonoBehaviour
         if (regenHealth == true)
         {
             HealthBar.RegenerateHealth();
+            AudioManager.instance.Play("Healing");
             if (gameManager.currentHealth >= gameManager.maxHealth)
             {
                 regenHealth = false;
@@ -203,7 +220,6 @@ public class PlayerScript : MonoBehaviour
 
         if (collision.gameObject.tag == "healthRegen")
         {
-            //AudioManager.instance.Play("Coin");
             if(gameManager.currentHealth < gameManager.maxHealth)
             {
                 regenHealth = true;

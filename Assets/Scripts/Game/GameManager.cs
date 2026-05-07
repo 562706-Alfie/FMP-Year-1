@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     public float xvelPrevious, damageValue = 100, maxHealth = 100, currentHealth, speedCheckDelay, timerHealthRegenerate, rateHealthRegenerate, timer, tileManagerDifference, healthPackHealthAmount, SmoothLandingPopUpTimer;
     float healthRegenerateTimerReturn;
     public Vector2 tileManagerOldPos, tileManagerNewPos;
-    public bool damageTaken, inAir, playHealingSFX;
-    bool deathPanelOpen = false, hasSmoothLandingMultiplierTextPoppedUp, hasBadLandingPoppedUp, hasText1PoppedUp, hasText2PoppedUp, coinSpawnDelay;
+    public bool damageTaken, inAir, playHealingSFX, finishedLoading;
+    bool deathPanelOpen = false, hasSmoothLandingMultiplierTextPoppedUp, hasBadLandingPoppedUp, hasText1PoppedUp, hasText2PoppedUp, coinSpawnDelay, coinSpawnChance;
 
     public static GameManager GameManagerinstance;
 
@@ -27,13 +27,15 @@ public class GameManager : MonoBehaviour
     public GameObject PopUpTextLocation;
     public GameObject PopUpText;
     public GameObject tileManager;
+    public GameObject Loading, PauseButton;
 
     public HealthBar healthBar;
     public ButtonScript ButtonScript;
     public PlayerScript playerScript;
+    public TileManager TileManager;
     public Sound[] sound;
 
-    public TextMeshProUGUI timerText, scoreText;
+    public TextMeshProUGUI timerText, scoreText, gameOverScoreText, gameOverTimerText;
 
     public CollectableSpawner CollectableSpawner;
 
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        finishedLoading = false;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         damageTaken = false;
@@ -57,13 +60,18 @@ public class GameManager : MonoBehaviour
         SmoothLandingPopUpTimer = 0f;
         hasText1PoppedUp = false;
         hasText2PoppedUp = false;
+        coinSpawnChance = false;
     }
 
     void Update()
     {
         // Timer
-        timer += Time.deltaTime;
-        timerText.text = "Timer: " + timer.ToString("0.00") + "s";
+        if (finishedLoading == true)
+        {
+            timer += Time.deltaTime;
+            timerText.text = "Time: " + timer.ToString("0.00") + "s";
+            gameOverTimerText.text = "Time: " + timer.ToString("0.00") + "s";
+        }
 
         // Best Time
         if (timer > PlayerPrefs.GetFloat("BestTime"))
@@ -73,6 +81,7 @@ public class GameManager : MonoBehaviour
 
         // Score
         scoreText.text = ("Score: ") + currentScore.ToString();
+        gameOverScoreText.text = ("Score: ") + currentScore.ToString();
 
         // Best Score
         if (currentScore > PlayerPrefs.GetInt("BestScore"))
@@ -173,7 +182,7 @@ public class GameManager : MonoBehaviour
                 playHealingSFX = true;
             }
 
-            //Do the healing sfx looping and ending here?
+            //Do the healing sfx looping and ending in playerscript since theres already stuff there
         }
         */
 
@@ -231,6 +240,19 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        // This allows tiles to be generated at the start of the game, and prevents player movement until it is done
+        if (finishedLoading == false) // Bigger number means more tiles will be spawned in
+        {
+            Loading.SetActive(true);
+            PauseButton.SetActive(false);
+            if (TileManager.tilesSpawned > 6)
+            {
+                Loading.SetActive(false);
+                PauseButton.SetActive(true);
+                finishedLoading = true;
+            }
+        }
+
         //Generates a random number between 0 and coinSpawnChance, spawns in coins and abilites depepnding on if the right number is chosen
         tileManagerNewPos.x = tileManager.transform.position.x;
         tileManagerDifference = tileManagerNewPos.x - tileManagerOldPos.x;
@@ -260,8 +282,9 @@ public class GameManager : MonoBehaviour
                 print("Health Pack");
                 HealthPackSpawner();
             }
+            coinSpawnChance = !coinSpawnChance;
             coinSpawnDelay = true;
-            if (globalCoinsToSpawn > 0)
+            if (coinSpawnChance == false && globalCoinsToSpawn > 0)
             {
                 CoinSpawner(globalCoinsToSpawn);
             }
