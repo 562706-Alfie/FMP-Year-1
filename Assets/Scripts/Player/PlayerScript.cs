@@ -191,7 +191,7 @@ public class PlayerScript : MonoBehaviour
         // Regenerates health continuously
         if (regenHealth == true)
         {
-            HealthBar.RegenerateHealth();
+            //HealthBar.RegenerateHealth();
             AudioManager.instance.Play("Healing");
             if (gameManager.currentHealth >= gameManager.maxHealth)
             {

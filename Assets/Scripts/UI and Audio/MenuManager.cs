@@ -30,12 +30,6 @@ public class MenuManager : MonoBehaviour
 
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
         sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume");
-
-        print("musicvol=" + PlayerPrefs.GetFloat("musicVolume"));
-
-        AudioManager.instance.Play("NewMenuBackground2");
-
-
     }
 
     public void Update()

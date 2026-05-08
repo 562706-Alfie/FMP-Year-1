@@ -4,7 +4,15 @@ using UnityEngine.SceneManagement;
 public class ButtonScript : MonoBehaviour
 {
     // Script does NOT need to go on each button, only the canvas(or anything really)
-    // When using this in the future please rename the methods.
+    // When using this in the future please rename the methods and the script as well.
+    // Only need button script, audio manager, sound, menu manager, and volume settings
+    //      - Button script stores all the methods for pressing buttons
+    //      - Audio manager stores the audio
+    //      - Sound is used by audio manager to store each sound and give different otions for it
+    //      - Menu manager is its own gameobject which I use just to store the difficulty via playerpref. Might need to connect music and sfx slider to it as well??
+    //      - Volume settings is used for setting up the music and sfx slider
+
+
     public bool isMusicPlayer;
     public GameObject deathPanel;
     public MenuManager menuManager;
