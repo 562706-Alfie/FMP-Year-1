@@ -300,7 +300,6 @@ public class GameManager : MonoBehaviour
             coinsToSpawn -= 1;
             globalCoinsToSpawn = coinsToSpawn;
             CollectableSpawner.spawnPoint = Instantiate(coin);
-            print(coinsToSpawn);
             coinSpawnDelay = false;
         }
     }
