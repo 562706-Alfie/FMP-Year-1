@@ -25923,8 +25923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 653.1115, y: 70.668}
-  m_SizeDelta: {x: 3084.026, y: 1121.271}
+  m_AnchoredPosition: {x: 1314.9886, y: 70.668}
+  m_SizeDelta: {x: 19332.553, y: 1121.271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1123112839
 MonoBehaviour:
@@ -32389,17 +32389,37 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1524193473}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: GroundSpeedUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2bdbdc2f-f61a-45d4-addc-521600679060
     m_ActionName: 'GamePlay/RightClickSpeedUp[/Mouse/rightButton]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1524193473}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: AirDiveDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 4dfe0d32-f277-4a7b-b5f8-4d4504ccf6c5
     m_ActionName: 'GamePlay/RightClickDiveDown[/Mouse/rightButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e7426e30-e247-48f6-860b-b76a381b64f4
-    m_ActionName: 'GamePlay/LeftClickJump[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Mouse
   m_DefaultActionMap: GamePlay

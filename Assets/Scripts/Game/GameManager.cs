@@ -213,10 +213,11 @@ public class GameManager : MonoBehaviour
 
         if (playerScript.IsGrounded() && damageTaken == false)
         {
-            speedCheckDelay = speedCheckDelay + Time.deltaTime;
+            speedCheckDelay = speedCheckDelay + Time.deltaTime; // Speed check delay is needed as IsGrounded becomes true before you physically hit the ground and slow down(meaning damage value is always 0)
             if(speedCheckDelay > 0.05)
             {
-                damageValue = xvelPrevious - playerScript.xvel - damageThreshold;
+                damageValue = (xvelPrevious - playerScript.xvel) - damageThreshold;
+                print(damageValue);
                 damageTaken = true;
                 inAir = false;
                 if(damageValue > 0)
@@ -261,25 +262,25 @@ public class GameManager : MonoBehaviour
             randomNumber = UnityEngine.Random.Range(0, collectableSpawnChance);
             if (randomNumber <= 10)
             {
-                print("Single Coin");
+                //print("Single Coin");
                 CoinSpawner(1);
             }
 
             if (randomNumber >= 11 && randomNumber < 16)
             {
-                print("10 Coins");
+                //print("10 Coins");
                 CoinSpawner(10);
             }
 
             if(randomNumber == 17)
             {
-                print("Health Regen");
+                //print("Health Regen");
                 HealthRegenSpawner();
             }
 
             if (randomNumber == 18)
             {
-                print("Health Pack");
+                //print("Health Pack");
                 HealthPackSpawner();
             }
             coinSpawnChance = !coinSpawnChance;
