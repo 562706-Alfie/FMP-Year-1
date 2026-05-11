@@ -219,5 +219,11 @@ public class PlayerScript : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if(other.gameObject.tag == "")
+        print("Collided with cloud");
+    }
 }
 

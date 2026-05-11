@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
         hasText1PoppedUp = false;
         hasText2PoppedUp = false;
         coinSpawnChance = false;
+
     }
 
     void Update()
@@ -100,53 +101,57 @@ public class GameManager : MonoBehaviour
         }
 
         // Gives score and displays text based on the height of the player
-        // First text
-        if (playerScript.ypos > 47f && hasText1PoppedUp == false)
+        if (finishedLoading == true)
         {
-            GameObject popUp = Instantiate(PopUpText, PopUpTextLocation.transform.position, Quaternion.identity);
-            popUp.GetComponentInChildren<TMP_Text>().text = ("SKY HIGH!                                                          +2");
-            currentScore += +2;
-            hasText1PoppedUp = true;
-        }
-        if (playerScript.ypos < 46f)
-        {
-            hasText1PoppedUp = false;
-        }
+            // First text
+            if (playerScript.ypos > 47f && hasText1PoppedUp == false)
+            {
+                GameObject popUp = Instantiate(PopUpText, PopUpTextLocation.transform.position, Quaternion.identity);
+                popUp.GetComponentInChildren<TMP_Text>().text = ("SKY HIGH!                                                          +2");
+                currentScore += +2;
+                hasText1PoppedUp = true;
+            }
+            if (playerScript.ypos < 46f)
+            {
+                hasText1PoppedUp = false;
+            }
 
-        // Second Text
-        if (playerScript.ypos > 110f && hasText2PoppedUp == false)
-        {
-            GameObject popUp = Instantiate(PopUpText, PopUpTextLocation.transform.position, Quaternion.identity);
-            popUp.GetComponentInChildren<TMP_Text>().text = ("ABOVE THE CLOUDS!                                        +4");
-            currentScore += +4;
-            hasText2PoppedUp = true;
-        }
-        if (playerScript.ypos < 109f)
-        {
-            hasText2PoppedUp = false;
-        }
+            // Second Text
+            if (playerScript.ypos > 110f && hasText2PoppedUp == false)
+            {
+                GameObject popUp = Instantiate(PopUpText, PopUpTextLocation.transform.position, Quaternion.identity);
+                popUp.GetComponentInChildren<TMP_Text>().text = ("ABOVE THE CLOUDS!                                        +4");
+                currentScore += +4;
+                hasText2PoppedUp = true;
+            }
+            if (playerScript.ypos < 109f)
+            {
+                hasText2PoppedUp = false;
+            }
 
-        // Smooth landing
-        if (damageValue < 0 && speedCheckDelay > 0.05 && hasSmoothLandingMultiplierTextPoppedUp == false && playerScript.IsGrounded() && SmoothLandingPopUpTimer >= 1f)
-        {
-            SmoothLandingPopUpTimer = 0f; // Prevents multiple pop ups when bouncing up and down off the ground too quickly
-            smoothLandingMultiplier += 1; // +1 to the "multiplier"
-            GameObject popUp = Instantiate(PopUpText, PopUpTextLocation.transform.position, Quaternion.identity);
-            popUp.GetComponentInChildren<TMP_Text>().text = ("SMOOTH LANDING!                                        +" + smoothLandingMultiplier);
-            currentScore += smoothLandingMultiplier;
-            hasSmoothLandingMultiplierTextPoppedUp = true; // Stops multiple from coming up(every 1 second) when staying on the ground
-            speedCheckDelay = 0; // Needs to be here, not in damage check
-        }
-        if (!playerScript.IsGrounded())
-        {
-            hasSmoothLandingMultiplierTextPoppedUp = false;
-        }
-        if (damageValue > 0)
-        {
-            smoothLandingMultiplier = 0;
-        }
+            // Smooth landing
+            if (damageValue < 0 && speedCheckDelay > 0.05 && hasSmoothLandingMultiplierTextPoppedUp == false && playerScript.IsGrounded() && SmoothLandingPopUpTimer >= 1f)
+            {
+                SmoothLandingPopUpTimer = 0f; // Prevents multiple pop ups when bouncing up and down off the ground too quickly
+                smoothLandingMultiplier += 1; // +1 to the "multiplier"
+                GameObject popUp = Instantiate(PopUpText, PopUpTextLocation.transform.position, Quaternion.identity);
+                popUp.GetComponentInChildren<TMP_Text>().text = ("SMOOTH LANDING!                                        +" + smoothLandingMultiplier);
+                currentScore += smoothLandingMultiplier;
+                hasSmoothLandingMultiplierTextPoppedUp = true; // Stops multiple from coming up(every 1 second) when staying on the ground
+                speedCheckDelay = 0; // Needs to be here, not in damage check
+            }
+            if (!playerScript.IsGrounded())
+            {
+                hasSmoothLandingMultiplierTextPoppedUp = false;
+            }
+            if (damageValue > 0)
+            {
+                smoothLandingMultiplier = 0;
+            }
 
-        // Pop Up for speed and getting a certain score?
+            // Pop Up for speed and getting a certain score?
+
+        }
 
 
         /*
@@ -244,7 +249,7 @@ public class GameManager : MonoBehaviour
         // This allows tiles to be generated at the start of the game, and prevents player movement until it is done
         if (finishedLoading == false) // Bigger number means more tiles will be spawned in
         {
-            Loading.SetActive(true);
+            //Loading.SetActive(true);
             PauseButton.SetActive(false);
             if (TileManager.tilesSpawned > 6)
             {
