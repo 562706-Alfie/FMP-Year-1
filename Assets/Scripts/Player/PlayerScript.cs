@@ -24,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     public HealthBar HealthBar;
 
     InputAction movement;
+    InputAction menu;
 
     public bool IsGrounded()
     {
@@ -50,6 +51,7 @@ public class PlayerScript : MonoBehaviour
         //yvel = 20;
 
         movement = InputSystem.actions.FindAction("Movement");
+        menu = InputSystem.actions.FindAction("menu");
     }
 
     // Update is called once per frame
@@ -116,6 +118,11 @@ public class PlayerScript : MonoBehaviour
             }
 
             rb.linearVelocity = new Vector3(xvel, yvel, 0);
+
+            if (menu.IsPressed())
+                {
+                ButtonScript.PauseButton();
+                }
         }
     }
 
@@ -182,6 +189,8 @@ public class PlayerScript : MonoBehaviour
                 regenHealth = false;
             }
         }
+
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

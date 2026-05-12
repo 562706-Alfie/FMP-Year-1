@@ -249,7 +249,7 @@ public class GameManager : MonoBehaviour
         // This allows tiles to be generated at the start of the game, and prevents player movement until it is done
         if (finishedLoading == false) // Bigger number means more tiles will be spawned in
         {
-            //Loading.SetActive(true);
+            Loading.SetActive(true);
             PauseButton.SetActive(false);
             if (TileManager.tilesSpawned > 6)
             {
