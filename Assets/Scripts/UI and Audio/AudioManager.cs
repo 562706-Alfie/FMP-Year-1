@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
     public float musicVolume, sfxVolume;
     public static AudioManager instance;
     public Sound[] sound;
+
+    public PlayerScript playerScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -73,6 +75,19 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.volume = vol;
+
+
+    }
+
+    public void ChangeWindSFXVolume(string name)
+    {
+        Sound s = Array.Find(sound, AudioSystem => AudioSystem.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + "Not found!");
+            return;
+        }
+        s.source.volume = playerScript.xvel;
 
 
     }

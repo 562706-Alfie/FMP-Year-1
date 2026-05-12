@@ -31486,7 +31486,7 @@ MonoBehaviour:
   difficultyChosen: {fileID: 0}
   selectedDifficulty: {fileID: 0}
   menuManager: {fileID: 0}
-  playerScript: {fileID: 0}
+  playerScript: {fileID: 1524193473}
 --- !u!114 &1418079079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31551,6 +31551,14 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: Wind
+    clip: {fileID: 8300000, guid: 63605482ac463b240b939790b78b874e, type: 3}
+    audioMixerGroup: {fileID: 5068762330994291841, guid: 112219d09320cdd45b56ed6408fb7c20, type: 2}
+    volume: 0
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  playerScript: {fileID: 0}
 --- !u!82 &1418079080
 AudioSource:
   m_ObjectHideFlags: 0

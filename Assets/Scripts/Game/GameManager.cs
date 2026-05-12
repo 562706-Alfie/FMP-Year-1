@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         hasText1PoppedUp = false;
         hasText2PoppedUp = false;
         coinSpawnChance = false;
-
+        AudioManager.instance.Play("Wind");
     }
 
     void Update()
@@ -193,19 +193,10 @@ public class GameManager : MonoBehaviour
         }
         */
 
-        /*
-        Sound.sound.loop = false;
-        s.loop = true;
+        // Plays the wind sfx if speed is high enough
+        AudioManager.instance.ChangeWindSFXVolume("Wind");
+        //print("Playing wind sfx");
 
-        foreach (Sound s in sound)
-        {
-            if (s.name == "MainTheme")
-            {
-                s.loop = true;   
-                s.source.loop = s.loop;
-            }
-        }
-        */
 
         // When the player hits the ground, need to compare speed they were going(xvelPrevious) vs speed they are now(xvel). Remove health based on that difference
         if (!playerScript.IsGrounded())
