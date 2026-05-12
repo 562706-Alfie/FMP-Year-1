@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public GameObject PopUpText;
     public GameObject tileManager;
     public GameObject Loading, PauseButton;
+    public GameObject coinAtStartBlocker;
+
 
     public HealthBar healthBar;
     public ButtonScript ButtonScript;
@@ -251,10 +253,12 @@ public class GameManager : MonoBehaviour
         {
             Loading.SetActive(true);
             PauseButton.SetActive(false);
+            coinAtStartBlocker.SetActive(false);
             if (TileManager.tilesSpawned > 6)
             {
                 Loading.SetActive(false);
                 PauseButton.SetActive(true);
+                coinAtStartBlocker.SetActive(true);
                 finishedLoading = true;
             }
         }

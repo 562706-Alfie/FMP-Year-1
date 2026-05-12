@@ -11,13 +11,13 @@ public class PlayerScript : MonoBehaviour
 
     public float jumpSpeed, rightClickSpeedUp, rightClickDiveSpeed, xvel, yvel, speedLimit, timeUntilXvelIncrease, diveSpeedIncreaseAmount, speedUpIncreaseAmount, timeUnitilPlayerControl;
     float timeUntilXvelIncreaseSave;
-    public bool inputSpeedUp, inputDiveDown, inputBallJump;
+    public bool inputSpeedUp, inputDiveDown, inputBallJump, menuOpen;
     bool regenHealth, playerEntrance, setMaxHealth;
 
     public LayerMask groundLayer;
     public float xpos, ypos;
 
-    public GameObject shadow, snowGroundParticleGenerator;
+    public GameObject shadow, snowGroundParticleGenerator, pauseScreen;
 
     public GameManager gameManager;
     public ButtonScript ButtonScript;
@@ -52,6 +52,8 @@ public class PlayerScript : MonoBehaviour
 
         movement = InputSystem.actions.FindAction("Movement");
         menu = InputSystem.actions.FindAction("menu");
+
+        menuOpen = false;
     }
 
     // Update is called once per frame
@@ -119,10 +121,14 @@ public class PlayerScript : MonoBehaviour
 
             rb.linearVelocity = new Vector3(xvel, yvel, 0);
 
-            if (menu.IsPressed())
-                {
+            if (menu.IsPressed() && menuOpen == false)
+            {
                 ButtonScript.PauseButton();
-                }
+                ButtonScript.PlaySelect();
+                pauseScreen.SetActive(true);
+                menuOpen = true;
+                print("Opening Menu");
+            }
         }
     }
 

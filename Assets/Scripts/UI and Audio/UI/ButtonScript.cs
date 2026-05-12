@@ -33,6 +33,7 @@ public class ButtonScript : MonoBehaviour
     public GameObject selectedDifficulty;
 
     public MenuManager menuManager;
+    public PlayerScript playerScript;
 
     public void Start()
     {
@@ -103,10 +104,12 @@ public class ButtonScript : MonoBehaviour
         Time.timeScale = 0f;
         var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(pauseScreenSelectedButton, new BaseEventData(eventSystem));
+        playerScript.menuOpen = true;
     }
     public void UnPauseButton()
     {
         Time.timeScale = 1.0f;
+        playerScript.menuOpen = false;
     }
 
     public void OpenDeathPanel()
@@ -137,7 +140,7 @@ public class ButtonScript : MonoBehaviour
             difficultyChosen.text = "Difficulty: Hard";
         }
 
-        if (menuManager.difficulty == -10)
+        if (menuManager.difficulty == -5)
         {
             difficultyChosen.text = "Difficulty: Impossible";
         }
@@ -174,7 +177,7 @@ public class ButtonScript : MonoBehaviour
             difficultyChosen.text = "Difficulty: Hard";
         }
 
-        if (PlayerPrefs.GetInt("Difficulty") == -10)
+        if (PlayerPrefs.GetInt("Difficulty") == -5)
         {
             selectedDifficulty = impossibleDifficulty;
             difficultyChosen.text = "Difficulty: Impossible";

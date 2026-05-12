@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("Difficulty", 0);
+            PlayerPrefs.SetInt("Difficulty", 10);
         }
     }
 

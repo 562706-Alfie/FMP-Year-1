@@ -6860,6 +6860,7 @@ MonoBehaviour:
   difficultyChosen: {fileID: 0}
   selectedDifficulty: {fileID: 0}
   menuManager: {fileID: 0}
+  playerScript: {fileID: 0}
 --- !u!114 &339344554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26631,6 +26632,7 @@ MonoBehaviour:
   difficultyChosen: {fileID: 0}
   selectedDifficulty: {fileID: 0}
   menuManager: {fileID: 0}
+  playerScript: {fileID: 1524193473}
 --- !u!1 &1159288175
 GameObject:
   m_ObjectHideFlags: 0
@@ -29624,6 +29626,7 @@ MonoBehaviour:
   tileManager: {fileID: 710020437}
   Loading: {fileID: 96246407}
   PauseButton: {fileID: 486268396}
+  coinAtStartBlocker: {fileID: 1119315652}
   healthBar: {fileID: 505854598}
   ButtonScript: {fileID: 1154510785}
   playerScript: {fileID: 1524193473}
@@ -31483,6 +31486,7 @@ MonoBehaviour:
   difficultyChosen: {fileID: 0}
   selectedDifficulty: {fileID: 0}
   menuManager: {fileID: 0}
+  playerScript: {fileID: 0}
 --- !u!114 &1418079079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32606,6 +32610,7 @@ MonoBehaviour:
   inputSpeedUp: 0
   inputDiveDown: 0
   inputBallJump: 0
+  menuOpen: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -32613,6 +32618,7 @@ MonoBehaviour:
   ypos: 0
   shadow: {fileID: 355001010}
   snowGroundParticleGenerator: {fileID: 493045131}
+  pauseScreen: {fileID: 745033144}
   gameManager: {fileID: 1226995510}
   ButtonScript: {fileID: 1154510785}
   HealthBar: {fileID: 505854598}
