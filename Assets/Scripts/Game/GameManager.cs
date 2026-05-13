@@ -193,11 +193,6 @@ public class GameManager : MonoBehaviour
         }
         */
 
-        // Plays the wind sfx if speed is high enough
-        AudioManager.instance.ChangeWindSFXVolume("Wind");
-        //print("Playing wind sfx");
-
-
         // When the player hits the ground, need to compare speed they were going(xvelPrevious) vs speed they are now(xvel). Remove health based on that difference
         if (!playerScript.IsGrounded())
         {
@@ -234,6 +229,10 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        // Plays the wind sfx if speed is high enough
+        //AudioManager.instance.ChangeWindSFXVolume();
+        //print("Playing wind sfx");
     }
 
 

@@ -79,9 +79,9 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void ChangeWindSFXVolume(string name)
+    public void ChangeWindSFXVolume()
     {
-        Sound s = Array.Find(sound, AudioSystem => AudioSystem.name == name);
+        Sound s = Array.Find(sound, AudioSystem => AudioSystem.name == "Wind");
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + "Not found!");

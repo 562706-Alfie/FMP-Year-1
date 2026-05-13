@@ -26,7 +26,7 @@ public class ButtonScript : MonoBehaviour
 
     public GameObject gameOverSelectedButton;
     public GameObject pauseScreenSelectedButton;
-
+    public GameObject coinAtStartBlocker;
 
     public TextMeshProUGUI difficultyChosen;
 
@@ -102,6 +102,7 @@ public class ButtonScript : MonoBehaviour
     public void PauseButton()
     {
         Time.timeScale = 0f;
+        coinAtStartBlocker.SetActive(false);
         var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(pauseScreenSelectedButton, new BaseEventData(eventSystem));
         playerScript.menuOpen = true;
@@ -109,6 +110,7 @@ public class ButtonScript : MonoBehaviour
     public void UnPauseButton()
     {
         Time.timeScale = 1.0f;
+        coinAtStartBlocker.SetActive(true);
         playerScript.menuOpen = false;
     }
 
