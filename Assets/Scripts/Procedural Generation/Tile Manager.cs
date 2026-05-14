@@ -17,6 +17,10 @@ public class TileManager : MonoBehaviour
     public GameObject tile1;
     public GameObject tile2;
     public GameObject tile3;
+    public GameObject tile4;
+    public GameObject tile5;
+    public GameObject tile6;
+    public GameObject tile7;
 
     public GameManager gameManager;
 
@@ -27,6 +31,10 @@ public class TileManager : MonoBehaviour
         tileList.Add(tile1);
         tileList.Add(tile2);
         tileList.Add(tile3);
+        tileList.Add(tile4);
+        tileList.Add(tile5);
+        tileList.Add(tile6);
+        tileList.Add(tile7);
 
         tilesSpawned = 0;
 

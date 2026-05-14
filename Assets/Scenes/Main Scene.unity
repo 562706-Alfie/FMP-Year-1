@@ -15410,6 +15410,10 @@ MonoBehaviour:
   tile1: {fileID: 2976652685920815037, guid: 3c5e744d172bdfe42b54a3fbd0e449b8, type: 3}
   tile2: {fileID: 2046139032986781000, guid: 67cbde1471cb3654393e39a429788f9b, type: 3}
   tile3: {fileID: 2285103901305096125, guid: 83dd64ffe9427884eb15a1503d6c14ce, type: 3}
+  tile4: {fileID: 2285103901305096125, guid: d33e53824578b7147b389a558ab5bc03, type: 3}
+  tile5: {fileID: 2285103901305096125, guid: 2e695a75a27e12e43b08af32a7c387ca, type: 3}
+  tile6: {fileID: 2285103901305096125, guid: d8261e18785f8224d9152a39db918d6b, type: 3}
+  tile7: {fileID: 2285103901305096125, guid: 19e412d7865f6e54697652ae8b302c90, type: 3}
   gameManager: {fileID: 1226995510}
 --- !u!4 &726932353 stripped
 Transform:
